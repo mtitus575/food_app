@@ -5,7 +5,7 @@ export const RECIPE_BANK = [
     //first recipe:
     id: 1,
     name: "yellow thai inspired smoked tofu curry",
-    image: "//https:www.example/link/address.com",
+    image: "https://media.hellofresh.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/64b10fe6d5b71fbd26231437/step-85a66350.jpg",
     ingredients: [
       {
         name: "onion",
@@ -1795,4 +1795,3 @@ export const VALID_UNITS = {
   count: ["pieces", "whole", "cloves", "slices", "cans", "sachets"],
 };
 
-console.log(Object.keys(RECIPE_BANK[0].ingredients)); //testing accessing the recipes.
