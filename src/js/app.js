@@ -4,6 +4,6 @@
 import { DataManager } from "./modules/dataManager.js";
 
 // Initialize the data manager
-DataManager.init();
+// DataManager.init();
 
 
