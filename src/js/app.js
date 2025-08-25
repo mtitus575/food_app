@@ -2,6 +2,7 @@
 
 //Import modules here:
 import { DataManager } from "./modules/dataManager.js";
+import { titleCase } from "./utilities/helperFunctions.js";
 
 function startApp() {
   // Initialize the data manager
@@ -38,7 +39,7 @@ function startApp() {
 
       //building out the recipeCard:
       recipeImg.src = recipe.image;
-      recipeName.innerText = recipe.name;
+      recipeName.innerText = titleCase(recipe.name);
       recipeCalories.innerText = `Calories: ${0}`;
 
       //   console.log("Tester:", recipe);
