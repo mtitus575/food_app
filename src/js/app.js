@@ -39,7 +39,7 @@ function startApp() {
       //building out the recipeCard:
       recipeImg.src = recipe.image;
       recipeName.innerText = recipe.name;
-      recipeCalories.innerText = `Calories: ${0}`
+      recipeCalories.innerText = `Calories: ${0}`;
 
       //   console.log("Tester:", recipe);
     }
