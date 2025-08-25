@@ -5,20 +5,32 @@ const initialRecipes = [
     id: 1,
     name: "Yellow Thai Inspired Smoked Tofu Curry",
     ingredients: {
-      onion: {
-        quantity: 2,
-        weight: null,
+      ingredient: {
+        name: "onion",
+        amount: 2,
+        unit: "pieces",
+        category: "vegetables",
       },
-      "pak choi": {
-        quantity: 2,
-        weight: null,
+      ingredient: {
+        name: "pak choi",
+        amount: 2,
+        unit: "pieces",
+        category: "vegetables",
       },
-      "smoked tofu": {
-        quantity: null,
-        weight: 450,
+      ingredient: {
+        name: "smoked tofu",
+        amount: 450,
+        unit: "g",
+        category: "protein",
       },
     },
   },
 ];
+
+const VALID_UNITS = {
+  volume: ["cups", "tbsp", "tsp", "ml", "l"],
+  weight: ["g", "kg", "oz", "lbs"],
+  count: ["pieces", "whole", "cloves", "slices"],
+};
 
 console.log(Object.keys(initialRecipes[0].ingredients));
