@@ -92,5 +92,5 @@ const DataManager = {
 export { DataManager };
 
 //testing:
-const testRecipes = DataManager.getInitialRecipes();
-console.log(testRecipes[0].cookTime);
+// const testRecipes = DataManager.getInitialRecipes();
+// console.log(testRecipes[0].cookTime);
