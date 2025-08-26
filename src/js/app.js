@@ -8,6 +8,8 @@ function startApp() {
   // Initialize the data manager
   DataManager.init();
 
+  const body = document.querySelector("body");
+
   //Get total saved recipes and display to DOM:
   const recipeSavedTotal = DataManager.getInitialRecipes().length;
   const recipeTotal = document.getElementById("recipe_total");
@@ -32,17 +34,25 @@ function startApp() {
       recipeCalories.className = "recipeCalories";
 
       //Append the card to the parent container and it's child elements:
-      recipeContainer.appendChild(recipeCard);
-      recipeCard.appendChild(recipeImg);
-      recipeCard.appendChild(recipeName);
-      recipeCard.appendChild(recipeCalories);
+      recipeContainer.append(recipeCard);
+      recipeCard.append(recipeImg, recipeName, recipeCalories);
 
       //building out the recipeCard:
       recipeImg.src = recipe.image;
       recipeName.innerText = titleCase(recipe.name);
-      recipeCalories.innerText = `Calories: ${0}`;
+      recipeCalories.innerText = `Calories: ${0}`; //The zero here is a placeholder. Actual calories/per portion needed here.
 
       //   console.log("Tester:", recipe);
+
+      recipeCard.addEventListener("click", function displayRecipe() {
+        //create and add a card to the page:
+        const recipeHero = document.createElement("section");
+        recipeHero.className = "recipeHero";
+        body.append(recipeHero); //append the main card to the main html body.
+
+        //display contents for that recipe in that card:
+        recipeHero.innerText = recipe.image;
+      });
     }
   }
   createRecipeCard();
