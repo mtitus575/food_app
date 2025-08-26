@@ -5,7 +5,8 @@ export const RECIPE_BANK = [
     //first recipe:
     id: 1,
     name: "yellow thai inspired smoked tofu curry",
-    image: "https://media.hellofresh.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/64b10fe6d5b71fbd26231437/step-85a66350.jpg",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4a4818d9f25cca8428e/step-ebeca150.jpg",
     ingredients: [
       {
         name: "onion",
@@ -84,6 +85,8 @@ export const RECIPE_BANK = [
     //second recipe:
     id: 2,
     name: "lentil and basa dal",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4b235963fcd98f3f117/step-28adb850.jpg",
     ingredients: [
       {
         name: "lentils",
@@ -155,6 +158,8 @@ export const RECIPE_BANK = [
     //third recipe:
     id: 3,
     name: "coconut, chilli and herb crusted basa",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4aa35963fcd98f3f103/step-5302ff50.jpg",
     ingredients: [
       { name: "lemon", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic clove", amount: 6, unit: "whole", image: "imgOfItem" },
@@ -216,6 +221,8 @@ export const RECIPE_BANK = [
     //fourth recipe:
     id: 4,
     name: "sweet miso aubergine in a sambal mayo drizzle",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6811efb55917498f8bf2e652/step-7e017d50.jpg",
     ingredients: [
       { name: "sushi rice", amount: 300, unit: "grams", image: "imgOfItem" },
       { name: "ginger puree", amount: 30, unit: "grams", image: "imgOfItem" },
@@ -262,6 +269,8 @@ export const RECIPE_BANK = [
     //fifth recipe:
     id: 5,
     name: "northern thai inspired vegetable noodle soup",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6811efaf05fc1830ec44fd62/step-21dbca50.jpg",
     ingredients: [
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -317,6 +326,8 @@ export const RECIPE_BANK = [
     //sixth recipe:
     id: 6,
     name: "vietnamese inspired basa & creamy conjac noodles",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6809118b3a1db6f3d2ac5a19/step-06a22a50.jpeg",
     ingredients: [
       { name: "udon noodles", amount: 400, unit: "grams", image: "imgOfItem" },
       { name: "pak choi", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -359,7 +370,9 @@ export const RECIPE_BANK = [
   {
     //seventh recipe:
     id: 7,
-    name: "mexican inspired tomatoe black beans",
+    name: "mexican inspired tomato black beans",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6809119bde3861faddf5a2c1/step-37948d50.jpg",
     ingredients: [
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "black beans", amount: 2, unit: "cans", image: "imgOfItem" },
@@ -414,6 +427,8 @@ export const RECIPE_BANK = [
     //eighth recipe:
     id: 8,
     name: "yellow thai inspired cod curry",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67f7c615853dfb1d75b49003/step-68a99d50.jpg",
     ingredients: [
       { name: "basmati rice", amount: 2, unit: "packs", image: "imgOfItem" },
       { name: "shallots", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -463,6 +478,8 @@ export const RECIPE_BANK = [
     //ninth recipe:
     id: 9,
     name: "confit garlic, lemon and rosemary basa",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67f7c60f0ed0c93fe95a3d68/step-c7991650.jpg",
     ingredients: [
       {
         name: "salad potatoes",
@@ -505,6 +522,8 @@ export const RECIPE_BANK = [
     //tenth recipe:
     id: 10,
     name: "peanut and lime noodles",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67ed5f6bd1bc9d2bb2b9c383/step-d2223a50.jpg",
     ingredients: [
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       {
@@ -550,6 +569,8 @@ export const RECIPE_BANK = [
     //eleventh recipe:
     id: 11,
     name: "miso glazed aubergine",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67e53642f59be9ad8dcc7609/step-537a3750.jpg",
     ingredients: [
       { name: "aubergines", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "miso paste", amount: 60, unit: "grams", image: "imgOfItem" },
@@ -589,6 +610,8 @@ export const RECIPE_BANK = [
     //twelfth recipe:
     id: 12,
     name: "basa bouillabaisse",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67e5363d0d3e977968bd966d/step-8499ca50.jpg",
     ingredients: [
       { name: "shallots", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "large tomatoes", amount: 6, unit: "whole", image: "imgOfItem" },
@@ -650,6 +673,8 @@ export const RECIPE_BANK = [
     //thirteenth recipe:
     id: 13,
     name: "honey teriyaki glazed aubergine tacos",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67daf73e40b689c290457332/step-8f701850.jpg",
     ingredients: [
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
       {
@@ -703,6 +728,8 @@ export const RECIPE_BANK = [
     //fourteenth recipe:
     id: 14,
     name: "honey-harissa glazed cod",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67daf73b7aed69c9540c8fc2/step-aa8cfc50.jpg",
     ingredients: [
       {
         name: "salad potatoes",
@@ -744,6 +771,8 @@ export const RECIPE_BANK = [
     //fifteenth recipe:
     id: 15,
     name: "pesto-crusted cod",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67c8863f8f112f54d1d768e4/step-91839050.jpg",
     ingredients: [
       {
         name: "salad potatoes",
@@ -804,6 +833,8 @@ export const RECIPE_BANK = [
     //sixteenth recipe:
     id: 16,
     name: "tomato and lentil vegetable soup",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67a35f5ef5f1773a0107c7b2/step-34d6ff50.jpg",
     ingredients: [
       { name: "smoked tofu", amount: 450, unit: "grams", image: "imgOfItem" },
       { name: "onions", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -859,6 +890,8 @@ export const RECIPE_BANK = [
     //seventeenth recipe:
     id: 17,
     name: "creamy coconut gochujang lentils",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6790ebb2777cba1605cb223d/step-56f25650.jpg",
     ingredients: [
       { name: "sushi rice", amount: 300, unit: "grams", image: "imgOfItem" },
       { name: "onions", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -926,7 +959,9 @@ export const RECIPE_BANK = [
   {
     //eighteenth recipe:
     id: 18,
-    name: "sweet and spice plant-based mince noodles",
+    name: "sweet and spicy plant-based mince noodles",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6790ebacf191f0a81ae72dac/step-0ae23650.jpg",
     ingredients: [
       {
         name: "tenderstem broccoli",
@@ -972,6 +1007,8 @@ export const RECIPE_BANK = [
     //nineteenth recipe:
     id: 19,
     name: "creamy lemon and asparagus gnocchi",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/677e86639bad0bb45fbd638e/step-8c5dba50.jpg",
     ingredients: [
       { name: "ciabatta rolls", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic cloves", amount: 4, unit: "whole", image: "imgOfItem" },
@@ -1010,6 +1047,8 @@ export const RECIPE_BANK = [
     //twentieth recipe:
     id: 20,
     name: "this isn't chicken fricassee inspired soup",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/676047d9f511d87afd23f730/step-12d1da50.jpg",
     ingredients: [
       { name: "onions", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "ciabatta rolls", amount: 4, unit: "whole", image: "imgOfItem" },
@@ -1062,6 +1101,8 @@ export const RECIPE_BANK = [
     //twenty-first recipe:
     id: 21,
     name: "spicy vegetable gyoza ramen",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/676047d0afc243b64a9f7ed8/step-2a301350.jpg",
     ingredients: [
       { name: "spring onions", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "radishes", amount: 200, unit: "grams", image: "imgOfItem" },
@@ -1117,6 +1158,8 @@ export const RECIPE_BANK = [
     //twenty-second recipe:
     id: 22,
     name: "sticky teriyaki fried tofu on kimchi fried rice",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6759b7a14f0b0d39dcbec79e/step-96b7f250.jpg",
     ingredients: [
       {
         name: "brown basmati rice",
@@ -1165,6 +1208,8 @@ export const RECIPE_BANK = [
     //twenty-third recipe:
     id: 23,
     name: "spiced tofu sambal laksa",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/674747ad989edba91be32335/step-84286b50.jpg",
     ingredients: [
       { name: "pak choi", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1222,6 +1267,8 @@ export const RECIPE_BANK = [
     //twenty-fourth recipe:
     id: 24,
     name: "tofu tikka tacos",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6750302bd4acb9b7600a9972/step-1b08b150.jpg",
     ingredients: [
       { name: "firm tofu", amount: 280, unit: "grams", image: "imgOfItem" },
       { name: "natural yogurt", amount: 150, unit: "ml", image: "imgOfItem" },
@@ -1270,6 +1317,8 @@ export const RECIPE_BANK = [
     //twenty-fifth recipe:
     id: 25,
     name: "curried purple carrot dal",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/673480e4df7bce3ee2c2907b/step-c587aa50.jpg",
     ingredients: [
       { name: "carrots", amount: 2, unit: "whole", image: "imgOfItem" },
       {
@@ -1332,6 +1381,8 @@ export const RECIPE_BANK = [
     //twenty-sixth recipe:
     id: 26,
     name: "peri peri spiced tofu",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6718d0e5d68888376c8d1e8a/step-51eb5350.jpg",
     ingredients: [
       { name: "smoked tofu", amount: 360, unit: "g", image: "imgOfItem" },
       { name: "cornflour", amount: 20, unit: "g", image: "imgOfItem" },
@@ -1379,6 +1430,7 @@ export const RECIPE_BANK = [
     //twenty-seventh recipe:
     id: 27,
     name: "basa on a bed of creamy pesto lentils",
+    image: "",
     ingredients: [
       { name: "broccoli", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic cloves", amount: 2, unit: "cloves", image: "imgOfItem" },
@@ -1411,6 +1463,7 @@ export const RECIPE_BANK = [
     //twenty-eighth recipe:
     id: 28,
     name: "black bean chilli",
+    image: "",
     ingredients: [
       { name: "red onions", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1473,6 +1526,7 @@ export const RECIPE_BANK = [
     //twenty-ninth recipe:
     id: 29,
     name: "coconut red lentil dal",
+    image: "",
     ingredients: [
       { name: "green peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "red chillies", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1515,6 +1569,7 @@ export const RECIPE_BANK = [
     //thirtieth recipe:
     id: 30,
     name: "spicy zhoug sea bream",
+    image: "",
     ingredients: [
       { name: "coriander", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "aubergines", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1566,6 +1621,8 @@ export const RECIPE_BANK = [
     //thirty-first recipe:
     id: 31,
     name: "sesame coated tofu",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67c886378f112f54d1d768cf/step-2635e250.jpg",
     ingredients: [
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       {
@@ -1612,6 +1669,8 @@ export const RECIPE_BANK = [
     //thirty-second recipe:
     id: 32,
     name: "shredded hoison smoked tofu bao buns",
+    image:
+      "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/66c5fa2d148d730f514f80fa/step-78101850.jpg",
     ingredients: [
       { name: "potatoes", amount: 900, unit: "g", image: "imgOfItem" },
       { name: "smoked tofu", amount: 360, unit: "g", image: "imgOfItem" },
@@ -1656,6 +1715,7 @@ export const RECIPE_BANK = [
     //thirty-third recipe:
     id: 33,
     name: "baja inspired crispy basa tacos",
+    image: "",
     ingredients: [
       { name: "basa fillets", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "green peppers", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1701,6 +1761,7 @@ export const RECIPE_BANK = [
     //thirty-fourth recipe:
     id: 34,
     name: "gujarati inspired dal soup",
+    image: "",
     ingredients: [
       { name: "garlic clove", amount: 4, unit: "cloves", image: "imgOfItem" },
       { name: "red chilli", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1757,6 +1818,7 @@ export const RECIPE_BANK = [
     //thirty-fifth recipe:
     id: 35,
     name: "jerk spiced tofu rice bowl",
+    image: "",
     ingredients: [
       { name: "basmati rice", amount: 200, unit: "g", image: "imgOfItem" },
       { name: "bell pepper", amount: 4, unit: "whole", image: "imgOfItem" },
@@ -1794,4 +1856,3 @@ export const VALID_UNITS = {
   weight: ["g", "kg", "oz", "lbs"],
   count: ["pieces", "whole", "cloves", "slices", "cans", "sachets"],
 };
-
