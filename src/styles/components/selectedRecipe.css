@@ -1,34 +1,52 @@
-
 /* Indivual recipe HERO card */
-.recipeHero{
+/* This basic styling must be changed. Used to visualize the page only */
+.recipeHero {
   width: 100%;
   height: 100vh;
-  border: solid 2px;
-  background-color: rgb(241, 208, 241);
+  border: solid 1px;
+  background-color: rgb(224, 206, 224);
 }
-.recipeMainImage{
+.recipeMainImage {
   width: 70%;
 }
-.recipeMainDetails{
+.recipeMainDetails {
   height: 80%;
   border: 1px solid;
-  background-color: rgb(212, 171, 171);
+  background-color: rgb(101, 75, 75);
 }
 
- /* 27/08/2025
- Elements created in the selected recipe card:
- Create basic styles for visualisation:
- 
- recipeHero
- recipeMainImage
- recipeMainDetails
- recipeMainHighlights
- recipeMainInstruct
- recipeBtnCtn
+.recipeMainHighlights {
+  min-height: 40%;
+  border: 1px solid;
+}
+.recipeMainInstruct {
+  height: 50%;
+  border: 1px solid red;
+}
+.recipeBtnCtn {
+  min-height: 10%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+/*  */
+.recipeMainTitle {
+  border: 1px solid;
+}
+.ingredientList {
+  border: 1px solid;
+  min-height: 50px;
+}
+.recipeBasicInfo {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid;
+}
+.recipeMainInstructions {
+  border: 1px solid brown;
+  background-color: rgb(246, 248, 211);
+  height: 100%;
+}
+/* .btn {} */
 
- recipeMainTitle
- ingredientList
- recipeBasicInfo
- recipeMainInstructions
- btn
- */
+
