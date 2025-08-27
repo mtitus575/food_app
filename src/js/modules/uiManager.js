@@ -153,23 +153,23 @@ function displayArrayItems(recipe, arrayName, parentElement) {
 
     targetArr.forEach((obj) => {
       const ingredient = createComponent("li", `${arrayName}-list`);
-      ingredient.innerText = `${obj.name}, ${obj.amount} ${obj.unit}`
-      parentElement.append(ingredient)
+      ingredient.innerText = `${obj.name}, ${obj.amount} ${obj.unit}`;
+      parentElement.append(ingredient);
 
-      console.log(ingredient)
+      console.log(ingredient);
 
-      count++
-      return ingredient
+      count++;
+      return ingredient;
     });
   }
-
-  // return targetArr
 }
-// displayArrayItems(testRecipe, "ingredients");
-// displayArrayItems(testRecipe, "instructions", '');
 
 /** 28/08/2025
  Next:
- 1. populate recipe card with recipe details that are present.
- 2. Style the card to display the recipe nicely.
+ 1. From the origialRecipe array, create groupings of the recipes
+    -- use the file at home for this
+    -- groupings must contain 8 recipes.
+ 2. Add logic to loops through the groupings. It must remembers the order for each week.
+ 3. Style the card to display the recipe nicely.
+ 
  */
