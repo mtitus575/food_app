@@ -1,5 +1,6 @@
 import { DataManager } from "./dataManager.js";
 import { titleCase } from "../utilities/helperFunctions.js";
+import { createComponent } from "../utilities/helperFunctions.js";
 
 const uiManager = {
   loadTotalRecipes: function () {
@@ -72,59 +73,43 @@ const uiHelpers = {
     const body = document.querySelector("body");
 
     //create and add a card to the page:
-    const recipeHero = document.createElement("section");
-    recipeHero.className = "recipeHero";
+    const recipeHero = createComponent("section", "recipeHero");
     body.append(recipeHero); //append the main card to the main html body.
 
     // Create and append elements inside the main `recipeHero` container.
-    // image:
-    const recipeImg = document.createElement("img");
+    const recipeImg = createComponent("img", "recipeMainImage"); // image:
     recipeImg.src = recipe.image;
-    recipeImg.className = "recipeMainImage";
-    //container for details:
-    const recipeDetails = document.createElement("div");
-    recipeDetails.className = "recipeMainDetails";
+    const recipeDetails = createComponent("div", "recipeMainDetails"); //container for details
     recipeHero.append(recipeImg, recipeDetails);
 
     //Create elements and append inside the `recipeDetails` container:
-    const highlights = document.createElement("article");
-    highlights.className = "recipeMainHighlights";
-    const instructions = document.createElement("article");
-    instructions.className = "recipeMainInstruct";
-    const btnCtn = document.createElement("div");
-    btnCtn.className = "recipeBtnCtn";
+    const highlights = createComponent("article", "recipeMainHighlights");
+    const instructions = createComponent("article", "recipeMainInstruct");
+    const btnCtn = createComponent("div", "recipeBtnCtn");
     recipeDetails.append(highlights, instructions, btnCtn);
 
     //Create and append elements inside the `highlights` container:
-    const recipeTitle = document.createElement("h1");
-    recipeTitle.className = "recipeMainTitle";
+    const recipeTitle = createComponent("h1", "recipeMainTitle");
     recipeTitle.innerText = titleCase(recipe.name);
-
-    const ingredientList = document.createElement("ul");
-    ingredientList.className = "ingredientList";
-
-    const basicInfo = document.createElement("article");
-    basicInfo.className = "recipeBasicInfo";
+    const ingredientList = createComponent("ul", "ingredientList");
+    const basicInfo = createComponent("article", "recipeBasicInfo");
     highlights.append(recipeTitle, ingredientList, basicInfo);
 
     //Create and append details to `basicInfo` container:
-    const servings = document.createElement("p");
+    const servings = createComponent("p");
     servings.innerText = `Serves: ${recipe.servings}`;
-    const cookTime = document.createElement("p");
+    const cookTime = createComponent("p");
     cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`;
     basicInfo.append(servings, cookTime);
 
     //Create and append details to the `instructions` container
-    const instructionItems = document.createElement("ol");
-    instructionItems.className = "recipeMainInstructions";
+    const instructionItems = createComponent("ol", "recipeMainInstructions");
     instructions.append(instructionItems);
 
     //Create and append buttons in the `btnCtn`
-    const cookedBtn = document.createElement("button");
-    cookedBtn.className = "btn";
+    const cookedBtn = createComponent("button", "btn");
     cookedBtn.innerText = "Mark as Cooked";
-    const nextBtn = document.createElement("button");
-    nextBtn.className = "btn";
+    const nextBtn = createComponent("button", "btn");
     nextBtn.innerText = "Next Recipe";
     btnCtn.append(cookedBtn, nextBtn);
   },

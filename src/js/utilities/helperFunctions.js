@@ -19,3 +19,11 @@ export function titleCase(recipeName) {
   // Join the words back together
   return processedWords.join(" ");
 }
+
+//function that creates a component based on arguments.
+export function createComponent(elementType, elementClassName){
+  const DOMElement = document.createElement(elementType)
+  DOMElement.className = elementClassName 
+
+  return DOMElement
+}
