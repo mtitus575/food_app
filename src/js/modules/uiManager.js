@@ -93,26 +93,26 @@ const uiHelpers = {
     instructions.className = "recipeMainInstruct";
     const btnCtn = document.createElement("div");
     btnCtn.className = "recipeBtnCtn";
-    recipeDetails.append(highlights, instructions);
+    recipeDetails.append(highlights, instructions, btnCtn);
 
     //Create and append elements inside the `highlights` container:
     const recipeTitle = document.createElement("h1");
     recipeTitle.className = "recipeMainTitle";
     recipeTitle.innerText = titleCase(recipe.name);
 
-    const nutritionInfo = document.createElement("ul");
-    nutritionInfo.className = "recipeNutritionalInfo";
+    const ingredientList = document.createElement("ul");
+    ingredientList.className = "ingredientList";
 
     const basicInfo = document.createElement("article");
     basicInfo.className = "recipeBasicInfo";
-    highlights.append(recipeTitle, nutritionInfo, basicInfo);
+    highlights.append(recipeTitle, ingredientList, basicInfo);
 
     //Create and append details to `basicInfo` container:
-    const servings = document.createElement('p')
-    servings.innerText = `Serves: ${recipe.servings}`
-    const cookTime = document.createElement('p')
-    cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`
-    basicInfo.append(servings, cookTime)
+    const servings = document.createElement("p");
+    servings.innerText = `Serves: ${recipe.servings}`;
+    const cookTime = document.createElement("p");
+    cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`;
+    basicInfo.append(servings, cookTime);
 
     //Create and append details to the `instructions` container
     const instructionItems = document.createElement("ol");
@@ -131,3 +131,9 @@ const uiHelpers = {
 };
 
 export { uiManager };
+
+/**
+ Next:
+ 1. populate recipe card with recipe details that are present.
+ 2. Style the card to display the recipe nicely.
+ */
