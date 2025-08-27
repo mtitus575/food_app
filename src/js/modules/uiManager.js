@@ -98,6 +98,11 @@ function makeSection(recipe) {
   const recipeTitle = createComponent("h1", "recipeMainTitle");
   recipeTitle.innerText = titleCase(recipe.name);
   const ingredientList = createComponent("ul", "ingredientList");
+  const ingredientItems = displayArrayItems(
+    recipe,
+    "ingredients",
+    ingredientList
+  );
   const basicInfo = createComponent("article", "recipeBasicInfo");
   highlights.append(recipeTitle, ingredientList, basicInfo);
 
@@ -111,6 +116,11 @@ function makeSection(recipe) {
   //Create and append details to the `instructions` container
   const instructionItems = createComponent("ol", "recipeMainInstructions");
   instructions.append(instructionItems);
+  const instructItems = displayArrayItems(
+    recipe,
+    "instructions",
+    instructionItems
+  );
 
   //Create and append buttons in the `btnCtn`
   const cookedBtn = createComponent("button", "btn");
@@ -121,6 +131,42 @@ function makeSection(recipe) {
 
   return recipeHero;
 }
+
+// Function to display ingredients/instructions:
+function displayArrayItems(recipe, arrayName, parentElement) {
+  const targetArr = recipe[arrayName];
+  let count = 1;
+
+  if (typeof targetArr[0] !== "object") {
+    // console.log("I am an array", targetArr);
+
+    targetArr.forEach((element) => {
+      const listItem = createComponent("li", `${arrayName}-list`);
+      listItem.innerText = `${count}. ${element}`;
+      parentElement.append(listItem);
+
+      count++;
+      return listItem;
+    });
+  } else if (typeof targetArr[0] === "object") {
+    // console.log("I am the array containing and object", targetArr);
+
+    targetArr.forEach((obj) => {
+      const ingredient = createComponent("li", `${arrayName}-list`);
+      ingredient.innerText = `${obj.name}, ${obj.amount} ${obj.unit}`
+      parentElement.append(ingredient)
+
+      console.log(ingredient)
+
+      count++
+      return ingredient
+    });
+  }
+
+  // return targetArr
+}
+// displayArrayItems(testRecipe, "ingredients");
+// displayArrayItems(testRecipe, "instructions", '');
 
 /** 28/08/2025
  Next:

@@ -20,7 +20,7 @@
   border: 1px solid;
 }
 .recipeMainInstruct {
-  height: 50%;
+
   border: 1px solid red;
 }
 .recipeBtnCtn {
@@ -34,8 +34,14 @@
   border: 1px solid;
 }
 .ingredientList {
-  border: 1px solid;
+  /* the ingredient container */
+  border: 2px solid rgb(223, 115, 133);
   min-height: 50px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0.1rem;
+  margin: 0.2rem;
 }
 .recipeBasicInfo {
   display: flex;
@@ -48,5 +54,18 @@
   height: 100%;
 }
 /* .btn {} */
+
+.instructions-list{
+  /* individual items */
+  text-align:left;
+  font-size: 1.1rem;
+  line-height: 1.5;
+
+}
+.ingredients-list{
+  /* individual items */
+  text-align: left;
+  border: 1px solid green;
+}
 
 
