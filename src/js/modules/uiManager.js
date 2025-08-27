@@ -2,7 +2,7 @@ import { DataManager } from "./dataManager.js";
 import { titleCase } from "../utilities/helperFunctions.js";
 import { createComponent } from "../utilities/helperFunctions.js";
 
-const uiManager = {
+export const uiManager = {
   loadTotalRecipes: function () {
     const recipeSavedTotal = DataManager.getInitialRecipes().length;
     const recipeTotal = document.getElementById("recipe_total");
@@ -72,52 +72,57 @@ const uiHelpers = {
   showClickedRecipe: function (recipe) {
     const body = document.querySelector("body");
 
-    //create and add a card to the page:
-    const recipeHero = createComponent("section", "recipeHero");
-    body.append(recipeHero); //append the main card to the main html body.
-
-    // Create and append elements inside the main `recipeHero` container.
-    const recipeImg = createComponent("img", "recipeMainImage"); // image:
-    recipeImg.src = recipe.image;
-    const recipeDetails = createComponent("div", "recipeMainDetails"); //container for details
-    recipeHero.append(recipeImg, recipeDetails);
-
-    //Create elements and append inside the `recipeDetails` container:
-    const highlights = createComponent("article", "recipeMainHighlights");
-    const instructions = createComponent("article", "recipeMainInstruct");
-    const btnCtn = createComponent("div", "recipeBtnCtn");
-    recipeDetails.append(highlights, instructions, btnCtn);
-
-    //Create and append elements inside the `highlights` container:
-    const recipeTitle = createComponent("h1", "recipeMainTitle");
-    recipeTitle.innerText = titleCase(recipe.name);
-    const ingredientList = createComponent("ul", "ingredientList");
-    const basicInfo = createComponent("article", "recipeBasicInfo");
-    highlights.append(recipeTitle, ingredientList, basicInfo);
-
-    //Create and append details to `basicInfo` container:
-    const servings = createComponent("p");
-    servings.innerText = `Serves: ${recipe.servings}`;
-    const cookTime = createComponent("p");
-    cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`;
-    basicInfo.append(servings, cookTime);
-
-    //Create and append details to the `instructions` container
-    const instructionItems = createComponent("ol", "recipeMainInstructions");
-    instructions.append(instructionItems);
-
-    //Create and append buttons in the `btnCtn`
-    const cookedBtn = createComponent("button", "btn");
-    cookedBtn.innerText = "Mark as Cooked";
-    const nextBtn = createComponent("button", "btn");
-    nextBtn.innerText = "Next Recipe";
-    btnCtn.append(cookedBtn, nextBtn);
+    const mainRecipeCard = makeSection(recipe);
+    body.append(mainRecipeCard);
   },
 };
 
-export { uiManager };
+//This functions populates the selected recipe card:
+function makeSection(recipe) {
+  //create the main container. This gets returned + contains all the other elements below.
+  const recipeHero = createComponent("section", "recipeHero");
 
-/**
+  // Create and append elements inside the main `recipeHero` container.
+  const recipeImg = createComponent("img", "recipeMainImage"); // image:
+  recipeImg.src = recipe.image;
+  const recipeDetails = createComponent("div", "recipeMainDetails"); //container for details
+  recipeHero.append(recipeImg, recipeDetails);
+
+  //Create elements and append inside the `recipeDetails` container:
+  const highlights = createComponent("article", "recipeMainHighlights");
+  const instructions = createComponent("article", "recipeMainInstruct");
+  const btnCtn = createComponent("div", "recipeBtnCtn");
+  recipeDetails.append(highlights, instructions, btnCtn);
+
+  //Create and append elements inside the `highlights` container:
+  const recipeTitle = createComponent("h1", "recipeMainTitle");
+  recipeTitle.innerText = titleCase(recipe.name);
+  const ingredientList = createComponent("ul", "ingredientList");
+  const basicInfo = createComponent("article", "recipeBasicInfo");
+  highlights.append(recipeTitle, ingredientList, basicInfo);
+
+  //Create and append details to `basicInfo` container:
+  const servings = createComponent("p");
+  servings.innerText = `Serves: ${recipe.servings}`;
+  const cookTime = createComponent("p");
+  cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`;
+  basicInfo.append(servings, cookTime);
+
+  //Create and append details to the `instructions` container
+  const instructionItems = createComponent("ol", "recipeMainInstructions");
+  instructions.append(instructionItems);
+
+  //Create and append buttons in the `btnCtn`
+  const cookedBtn = createComponent("button", "btn");
+  cookedBtn.innerText = "Mark as Cooked";
+  const nextBtn = createComponent("button", "btn");
+  nextBtn.innerText = "Next Recipe";
+  btnCtn.append(cookedBtn, nextBtn);
+
+  return recipeHero;
+}
+
+/** 28/08/2025
  Next:
  1. populate recipe card with recipe details that are present.
  2. Style the card to display the recipe nicely.
