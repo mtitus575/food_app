@@ -111,7 +111,9 @@ function makeSection(recipe) {
   servings.innerText = `Serves: ${recipe.servings}`;
   const cookTime = createComponent("p");
   cookTime.innerText = `Cooking Time: ${recipe.cookTime} minutes`;
-  basicInfo.append(servings, cookTime);
+  const prepTime = createComponent("p");
+  prepTime.innerText = `Prep Time: ${recipe.prepTime} minutes`;
+  basicInfo.append(servings, prepTime, cookTime);
 
   //Create and append details to the `instructions` container
   const instructionItems = createComponent("ol", "recipeMainInstructions");
