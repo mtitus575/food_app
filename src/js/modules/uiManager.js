@@ -1,6 +1,7 @@
 import { DataManager } from "./dataManager.js";
 import { titleCase } from "../utilities/helperFunctions.js";
 import { createComponent } from "../utilities/helperFunctions.js";
+import { selectWeeklyRecipes } from "./mealPlanner.js";
 
 export const uiManager = {
   loadTotalRecipes: function () {
@@ -11,8 +12,9 @@ export const uiManager = {
     return recipeTotal.innerText;
   },
 
-  createRecipeCard: function () {
-    const recipeArray = DataManager.getInitialRecipes(); //saved array from my dataset.
+  createRecipeCard: function (input) {
+    // const recipeArray = DataManager.init().recipes; //saved array from my dataset.
+    const recipeArray = input;
     const recipeContainer = document.getElementById("recipe_wrapper"); //Parent element for recipies.
 
     for (let recipe of recipeArray) {
@@ -62,7 +64,41 @@ const uiEventHandlers = {
       uiHelpers.showClickedRecipe(recipe);
     };
   },
+  //eventHandler for weeklyRecipe Button:
+  handleWeeklyRecipeClick: function (e) {
+    e.preventDefault();
+
+    // Clear existing recipes first
+    const recipeContainer = document.getElementById("recipe_wrapper");
+    recipeContainer.innerHTML = "";
+
+    console.log(`Get Weekly Recipe button was clicked!`);
+
+    // Get weekly recipes
+    const weeklyRecipes = selectWeeklyRecipes();
+
+    if (weeklyRecipes && weeklyRecipes.length > 0) {
+      console.log(`Displaying ${weeklyRecipes.length} weekly recipes`);
+      uiManager.createRecipeCard(weeklyRecipes);
+    } else {
+      console.log("No weekly recipes returned");
+    }
+  },
 };
+
+// Initialize event listeners when the DOM is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  const weeklyBtn = document.getElementById("getWeeklyRecipe");
+  if (weeklyBtn) {
+    weeklyBtn.addEventListener(
+      "click",
+      uiEventHandlers.handleWeeklyRecipeClick
+    );
+    console.log("Weekly recipe button event listener set up");
+  } else {
+    console.error("Could not find getWeeklyRecipe button");
+  }
+});
 
 const uiHelpers = {
   hideAllRecipes: function () {

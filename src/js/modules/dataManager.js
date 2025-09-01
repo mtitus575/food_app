@@ -47,14 +47,20 @@ const DataManager = {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
   },
+  clear() {
+    return localStorage.clear();
+  },
   //Method to retrieve data from storage on loading / display sample data:
   //Note arrow functions do not have a `this` context.
   init() {
-    this.recipes = this.load("recipes") || this.getInitialRecipes();
-    this.users = this.load("users") || this.getSampleUsers();
-    this.weeklyPlan =
-      this.load("WeeklyRecipes") || this.getEmptyWeeklyRecipes();
-  },
+    const recipes = (this.recipes =
+      this.load("recipes") || this.getInitialRecipes());
+    const users = (this.users = this.load("users") || this.getSampleUsers());
+    const weeklyPlan = (this.weeklyPlan =
+      this.load("WeeklyRecipes") || this.getEmptyWeeklyRecipes());
+  
+      return {recipes: recipes, users: users, weeklyPlan: weeklyPlan}
+    },
 
   // Sample data methods:
   getInitialRecipes() {
@@ -91,6 +97,4 @@ const DataManager = {
 
 export { DataManager };
 
-//testing:
-// const testRecipes = DataManager.getInitialRecipes();
-// console.log(testRecipes[0].cookTime);
+

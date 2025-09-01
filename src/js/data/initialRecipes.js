@@ -4,6 +4,7 @@ export const RECIPE_BANK = [
   {
     //first recipe:
     id: 1,
+    week: 2,
     name: "yellow thai inspired smoked tofu curry",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4a4818d9f25cca8428e/step-ebeca150.jpg",
@@ -84,6 +85,7 @@ export const RECIPE_BANK = [
   {
     //second recipe:
     id: 2,
+    week: 1,
     name: "lentil and basa dal",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4b235963fcd98f3f117/step-28adb850.jpg",
@@ -157,6 +159,7 @@ export const RECIPE_BANK = [
   {
     //third recipe:
     id: 3,
+    week: 1,
     name: "coconut, chilli and herb crusted basa",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/681ca4aa35963fcd98f3f103/step-5302ff50.jpg",
@@ -325,6 +328,7 @@ export const RECIPE_BANK = [
   {
     //sixth recipe:
     id: 6,
+    week: 2,
     name: "vietnamese inspired basa & creamy conjac noodles",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6809118b3a1db6f3d2ac5a19/step-06a22a50.jpeg",
@@ -426,6 +430,7 @@ export const RECIPE_BANK = [
   {
     //eighth recipe:
     id: 8,
+    week: 1,
     name: "yellow thai inspired cod curry",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67f7c615853dfb1d75b49003/step-68a99d50.jpg",
@@ -521,6 +526,7 @@ export const RECIPE_BANK = [
   {
     //tenth recipe:
     id: 10,
+    week: 2,
     name: "peanut and lime noodles",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67ed5f6bd1bc9d2bb2b9c383/step-d2223a50.jpg",
@@ -672,6 +678,7 @@ export const RECIPE_BANK = [
   {
     //thirteenth recipe:
     id: 13,
+    week: 1,
     name: "honey teriyaki glazed aubergine tacos",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67daf73e40b689c290457332/step-8f701850.jpg",
@@ -770,7 +777,8 @@ export const RECIPE_BANK = [
   {
     //fifteenth recipe:
     id: 15,
-    name: "pesto-crusted cod",
+    week: 2,
+    name: "pesto crusted cod",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67c8863f8f112f54d1d768e4/step-91839050.jpg",
     ingredients: [
@@ -832,6 +840,7 @@ export const RECIPE_BANK = [
   {
     //sixteenth recipe:
     id: 16,
+    week: 1,
     name: "tomato and lentil vegetable soup",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67a35f5ef5f1773a0107c7b2/step-34d6ff50.jpg",
@@ -889,6 +898,7 @@ export const RECIPE_BANK = [
   {
     //seventeenth recipe:
     id: 17,
+    week: 2,
     name: "creamy coconut gochujang lentils",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6790ebb2777cba1605cb223d/step-56f25650.jpg",
@@ -1207,6 +1217,7 @@ export const RECIPE_BANK = [
   {
     //twenty-third recipe:
     id: 23,
+    week: 1,
     name: "spiced tofu sambal laksa",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/674747ad989edba91be32335/step-84286b50.jpg",
@@ -1316,6 +1327,7 @@ export const RECIPE_BANK = [
   {
     //twenty-fifth recipe:
     id: 25,
+    week: 1,
     name: "curried purple carrot dal",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/673480e4df7bce3ee2c2907b/step-c587aa50.jpg",
@@ -1620,6 +1632,7 @@ export const RECIPE_BANK = [
   {
     //thirty-first recipe:
     id: 31,
+    week: 1,
     name: "sesame coated tofu",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67c886378f112f54d1d768cf/step-2635e250.jpg",
@@ -1817,6 +1830,7 @@ export const RECIPE_BANK = [
   {
     //thirty-fifth recipe:
     id: 35,
+    week: 2,
     name: "jerk spiced tofu rice bowl",
     image: "",
     ingredients: [
