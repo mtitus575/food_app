@@ -24,7 +24,7 @@ export const RECIPE_BANK = [
       {
         name: "smoked tofu",
         amount: 450,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -36,7 +36,7 @@ export const RECIPE_BANK = [
       {
         name: "yellow thai style paste",
         amount: 90,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -54,13 +54,13 @@ export const RECIPE_BANK = [
       {
         name: "baby spinach",
         amount: 80,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "chilli flakes",
         amount: 5,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
     ],
@@ -105,7 +105,7 @@ export const RECIPE_BANK = [
       {
         name: "tomato puree",
         amount: 60,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -117,7 +117,7 @@ export const RECIPE_BANK = [
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -129,7 +129,7 @@ export const RECIPE_BANK = [
       {
         name: "baby spinach",
         amount: 200,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -170,27 +170,27 @@ export const RECIPE_BANK = [
       {
         name: "desiccated coconut",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "basa fillets", amount: 8, unit: "whole", image: "imgOfItem" },
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "bulgur wheat", amount: 240, unit: "grams", image: "imgOfItem" },
+      { name: "bulgur wheat", amount: 240, unit: "g", image: "imgOfItem" },
       {
         name: "young pea pods",
         amount: 320,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "low fat natural yoghurt",
         amount: 150,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "sugar", amount: 2, unit: "tsp", image: "imgOfItem" },
@@ -227,20 +227,20 @@ export const RECIPE_BANK = [
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6811efb55917498f8bf2e652/step-7e017d50.jpg",
     ingredients: [
-      { name: "sushi rice", amount: 300, unit: "grams", image: "imgOfItem" },
-      { name: "ginger puree", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "sushi rice", amount: 300, unit: "g", image: "imgOfItem" },
+      { name: "ginger puree", amount: 30, unit: "g", image: "imgOfItem" },
       { name: "aubergine", amount: 4, unit: "whole", image: "imgOfItem" },
-      { name: "miso paste", amount: 44, unit: "grams", image: "imgOfItem" },
-      { name: "ketjap manis", amount: 100, unit: "grams", image: "imgOfItem" },
+      { name: "miso paste", amount: 44, unit: "g", image: "imgOfItem" },
+      { name: "ketjap manis", amount: 100, unit: "g", image: "imgOfItem" },
       { name: "rice vinegar", amount: 60, unit: "ml", image: "imgOfItem" },
-      { name: "sambal paste", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "sambal paste", amount: 30, unit: "g", image: "imgOfItem" },
       {
         name: "vegan mayonnaise",
         amount: 64,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "radishes", amount: 200, unit: "grams", image: "imgOfItem" },
+      { name: "radishes", amount: 200, unit: "g", image: "imgOfItem" },
       { name: "coriander", amount: 1, unit: "bunches", image: "imgOfItem" },
       {
         name: "boiled water for the rice",
@@ -280,7 +280,7 @@ export const RECIPE_BANK = [
       {
         name: "red thai style paste",
         amount: 100,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -294,14 +294,14 @@ export const RECIPE_BANK = [
       {
         name: "young pea pods/sugar snaps",
         amount: 160,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "egg noodles", amount: 250, unit: "grams", image: "imgOfItem" },
+      { name: "egg noodles", amount: 250, unit: "g", image: "imgOfItem" },
       {
         name: "shiitake mushrooms",
         amount: 200,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "soy sauce", amount: 20, unit: "ml", image: "imgOfItem" },
@@ -333,21 +333,21 @@ export const RECIPE_BANK = [
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6809118b3a1db6f3d2ac5a19/step-06a22a50.jpeg",
     ingredients: [
-      { name: "udon noodles", amount: 400, unit: "grams", image: "imgOfItem" },
+      { name: "udon noodles", amount: 400, unit: "g", image: "imgOfItem" },
       { name: "pak choi", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "basa fillets", amount: 8, unit: "whole", image: "imgOfItem" },
       { name: "coconut milk", amount: 400, unit: "ml", image: "imgOfItem" },
-      { name: "peanut butter", amount: 60, unit: "grams", image: "imgOfItem" },
+      { name: "peanut butter", amount: 60, unit: "g", image: "imgOfItem" },
       {
         name: "vegetable stock paste",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "ginger, garlic & lemongrass puree",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "chilli flakes", amount: 2, unit: "pinches", image: "imgOfItem" },
@@ -392,7 +392,7 @@ export const RECIPE_BANK = [
       {
         name: "mature cheddar cheese",
         amount: 80,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -445,7 +445,7 @@ export const RECIPE_BANK = [
       {
         name: "yellow thai style paste",
         amount: 90,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "coconut milk", amount: 400, unit: "ml", image: "imgOfItem" },
@@ -489,7 +489,7 @@ export const RECIPE_BANK = [
       {
         name: "salad potatoes",
         amount: 700,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "mixed herbs", amount: 2, unit: "tbsp", image: "imgOfItem" },
@@ -500,10 +500,10 @@ export const RECIPE_BANK = [
       {
         name: "tenderstem broccoli",
         amount: 300,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "peas", amount: 240, unit: "grams", image: "imgOfItem" },
+      { name: "peas", amount: 240, unit: "g", image: "imgOfItem" },
     ],
     addedIngredients: [
       /*Objects added by user, stored in localStorage */
@@ -535,17 +535,17 @@ export const RECIPE_BANK = [
       {
         name: "speciality mushroom mix",
         amount: 500,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "red chillies", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "pak choi", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "soy sauce", amount: 40, unit: "ml", image: "imgOfItem" },
-      { name: "peanut butter", amount: 60, unit: "grams", image: "imgOfItem" },
-      { name: "ginger puree", amount: 30, unit: "grams", image: "imgOfItem" },
-      { name: "ketjap manis", amount: 100, unit: "grams", image: "imgOfItem" },
-      { name: "udon noodles", amount: 400, unit: "grams", image: "imgOfItem" },
+      { name: "peanut butter", amount: 60, unit: "g", image: "imgOfItem" },
+      { name: "ginger puree", amount: 30, unit: "g", image: "imgOfItem" },
+      { name: "ketjap manis", amount: 100, unit: "g", image: "imgOfItem" },
+      { name: "udon noodles", amount: 400, unit: "g", image: "imgOfItem" },
       {
         name: "water for the sauce",
         amount: 4,
@@ -579,20 +579,20 @@ export const RECIPE_BANK = [
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67e53642f59be9ad8dcc7609/step-537a3750.jpg",
     ingredients: [
       { name: "aubergines", amount: 2, unit: "whole", image: "imgOfItem" },
-      { name: "miso paste", amount: 60, unit: "grams", image: "imgOfItem" },
-      { name: "honey", amount: 60, unit: "grams", image: "imgOfItem" },
+      { name: "miso paste", amount: 60, unit: "g", image: "imgOfItem" },
+      { name: "honey", amount: 60, unit: "g", image: "imgOfItem" },
       { name: "chilli flakes", amount: 2, unit: "pinches", image: "imgOfItem" },
-      { name: "ketjap manis", amount: 100, unit: "grams", image: "imgOfItem" },
+      { name: "ketjap manis", amount: 100, unit: "g", image: "imgOfItem" },
       { name: "bell peppers", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "sesame oil", amount: 20, unit: "ml", image: "imgOfItem" },
       {
         name: "shredded savoy cabbage",
         amount: 300,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "udon noodles", amount: 400, unit: "grams", image: "imgOfItem" },
+      { name: "udon noodles", amount: 400, unit: "g", image: "imgOfItem" },
     ],
     addedIngredients: [
       /*Objects added by user, stored in localStorage */
@@ -623,24 +623,24 @@ export const RECIPE_BANK = [
       { name: "large tomatoes", amount: 6, unit: "whole", image: "imgOfItem" },
       { name: "garlic clove", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "basa fillets", amount: 8, unit: "whole", image: "imgOfItem" },
-      { name: "creme fraiche", amount: 300, unit: "grams", image: "imgOfItem" },
+      { name: "creme fraiche", amount: 300, unit: "g", image: "imgOfItem" },
       {
         name: "grated hard italian style cheese",
         amount: 40,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "sun-dried tomato paste",
         amount: 50,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "dried thyme", amount: 2, unit: "tbsp", image: "imgOfItem" },
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -687,13 +687,13 @@ export const RECIPE_BANK = [
       {
         name: "carrots (shredded)",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "red cabbage (shredded)",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "aubergines", amount: 4, unit: "whole", image: "imgOfItem" },
@@ -702,10 +702,10 @@ export const RECIPE_BANK = [
       {
         name: "teriyaki sauce",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "honey", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "honey", amount: 30, unit: "g", image: "imgOfItem" },
       {
         name: "plain taco tortillas",
         amount: 12,
@@ -741,7 +741,7 @@ export const RECIPE_BANK = [
       {
         name: "salad potatoes",
         amount: 700,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "red onion", amount: 1, unit: "whole", image: "imgOfItem" },
@@ -749,12 +749,12 @@ export const RECIPE_BANK = [
       {
         name: "baby plum tomatoes",
         amount: 300,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "mixed herbs", amount: 2, unit: "tbsp", image: "imgOfItem" },
-      { name: "honey", amount: 30, unit: "grams", image: "imgOfItem" },
-      { name: "harissa paste", amount: 100, unit: "grams", image: "imgOfItem" },
+      { name: "honey", amount: 30, unit: "g", image: "imgOfItem" },
+      { name: "harissa paste", amount: 100, unit: "g", image: "imgOfItem" },
       { name: "basa fillets", amount: 8, unit: "whole", image: "imgOfItem" },
     ],
     addedIngredients: [
@@ -785,13 +785,13 @@ export const RECIPE_BANK = [
       {
         name: "salad potatoes",
         amount: 700,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "mixed herbs", amount: 2, unit: "tbsp", image: "imgOfItem" },
       { name: "aubergines", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "basa fillets", amount: 8, unit: "whole", image: "imgOfItem" },
-      { name: "pesto", amount: 64, unit: "grams", image: "imgOfItem" },
+      { name: "pesto", amount: 64, unit: "g", image: "imgOfItem" },
       { name: "lentils", amount: 2, unit: "cans", image: "imgOfItem" },
       {
         name: "flat leaf parsley",
@@ -808,7 +808,7 @@ export const RECIPE_BANK = [
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "honey", amount: 2, unit: "tsp", image: "imgOfItem" },
@@ -845,19 +845,19 @@ export const RECIPE_BANK = [
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67a35f5ef5f1773a0107c7b2/step-34d6ff50.jpg",
     ingredients: [
-      { name: "smoked tofu", amount: 450, unit: "grams", image: "imgOfItem" },
+      { name: "smoked tofu", amount: 450, unit: "g", image: "imgOfItem" },
       { name: "onions", amount: 2, unit: "whole", image: "imgOfItem" },
       {
         name: "cavolo nero/kale",
         amount: 200,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "chives", amount: 2, unit: "whole", image: "imgOfItem" },
       {
         name: "sliced mushrooms",
         amount: 80,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "lentils", amount: 2, unit: "cans", image: "imgOfItem" },
@@ -867,7 +867,7 @@ export const RECIPE_BANK = [
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -903,7 +903,7 @@ export const RECIPE_BANK = [
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6790ebb2777cba1605cb223d/step-56f25650.jpg",
     ingredients: [
-      { name: "sushi rice", amount: 300, unit: "grams", image: "imgOfItem" },
+      { name: "sushi rice", amount: 300, unit: "g", image: "imgOfItem" },
       { name: "onions", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic cloves", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "spring onions", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -911,27 +911,27 @@ export const RECIPE_BANK = [
       {
         name: "desiccated coconut",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "gochujang paste",
         amount: 100,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "ginger puree", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "ginger puree", amount: 30, unit: "g", image: "imgOfItem" },
       { name: "coconut milk", amount: 400, unit: "ml", image: "imgOfItem" },
       {
         name: "carrots (shredded)",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "red cabbage (shredded)",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -976,21 +976,21 @@ export const RECIPE_BANK = [
       {
         name: "tenderstem broccoli",
         amount: 160,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "pak choi", amount: 4, unit: "whole", image: "imgOfItem" },
-      { name: "baby corn", amount: 120, unit: "grams", image: "imgOfItem" },
+      { name: "baby corn", amount: 120, unit: "g", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
-      { name: "quorn mince", amount: 300, unit: "grams", image: "imgOfItem" },
-      { name: "ketjap manis", amount: 50, unit: "grams", image: "imgOfItem" },
+      { name: "quorn mince", amount: 300, unit: "g", image: "imgOfItem" },
+      { name: "ketjap manis", amount: 50, unit: "g", image: "imgOfItem" },
       {
         name: "gochujang paste",
         amount: 100,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "rice noodles", amount: 240, unit: "grams", image: "imgOfItem" },
+      { name: "rice noodles", amount: 240, unit: "g", image: "imgOfItem" },
       { name: "water", amount: 150, unit: "ml", image: "imgOfItem" },
       { name: "tomato puree", amount: 2, unit: "tbsp", image: "imgOfItem" },
       { name: "sugar", amount: 1, unit: "tsp", image: "imgOfItem" },
@@ -1022,18 +1022,18 @@ export const RECIPE_BANK = [
     ingredients: [
       { name: "ciabatta rolls", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic cloves", amount: 4, unit: "whole", image: "imgOfItem" },
-      { name: "asparagus", amount: 300, unit: "grams", image: "imgOfItem" },
+      { name: "asparagus", amount: 300, unit: "g", image: "imgOfItem" },
       { name: "lemons", amount: 2, unit: "whole", image: "imgOfItem" },
-      { name: "gnocchi", amount: 600, unit: "grams", image: "imgOfItem" },
+      { name: "gnocchi", amount: 600, unit: "g", image: "imgOfItem" },
       { name: "mixed herbs", amount: 2, unit: "tbsp", image: "imgOfItem" },
       { name: "single soya", amount: 2, unit: "whole", image: "imgOfItem" },
       {
         name: "vegetable stock paste",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "baby spinach", amount: 200, unit: "grams", image: "imgOfItem" },
+      { name: "baby spinach", amount: 200, unit: "g", image: "imgOfItem" },
     ],
     addedIngredients: [
       /*Objects added by user, stored in localStorage */
@@ -1067,7 +1067,7 @@ export const RECIPE_BANK = [
       {
         name: "plant based 'chicken' pieces",
         amount: 400,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
@@ -1079,12 +1079,12 @@ export const RECIPE_BANK = [
       {
         name: "wild mushroom paste",
         amount: 30,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "mixed herbs", amount: 2, unit: "tbsp", image: "imgOfItem" },
-      { name: "peas", amount: 240, unit: "grams", image: "imgOfItem" },
-      { name: "baby spinach", amount: 80, unit: "grams", image: "imgOfItem" },
+      { name: "peas", amount: 240, unit: "g", image: "imgOfItem" },
+      { name: "baby spinach", amount: 80, unit: "g", image: "imgOfItem" },
       { name: "water", amount: 500, unit: "ml", image: "imgOfItem" },
     ],
     addedIngredients: [
@@ -1115,12 +1115,12 @@ export const RECIPE_BANK = [
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/676047d0afc243b64a9f7ed8/step-2a301350.jpg",
     ingredients: [
       { name: "spring onions", amount: 4, unit: "whole", image: "imgOfItem" },
-      { name: "radishes", amount: 200, unit: "grams", image: "imgOfItem" },
-      { name: "asparagus", amount: 300, unit: "grams", image: "imgOfItem" },
+      { name: "radishes", amount: 200, unit: "g", image: "imgOfItem" },
+      { name: "asparagus", amount: 300, unit: "g", image: "imgOfItem" },
       {
         name: "tenderstem broccoli",
         amount: 160,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "chilli flakes", amount: 2, unit: "pinches", image: "imgOfItem" },
@@ -1133,11 +1133,11 @@ export const RECIPE_BANK = [
       {
         name: "asian broth paste",
         amount: 50,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "rice noodles", amount: 440, unit: "grams", image: "imgOfItem" },
-      { name: "sambal paste", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "rice noodles", amount: 440, unit: "g", image: "imgOfItem" },
+      { name: "sambal paste", amount: 30, unit: "g", image: "imgOfItem" },
       {
         name: "water for the broth",
         amount: 800,
@@ -1174,17 +1174,17 @@ export const RECIPE_BANK = [
       {
         name: "brown basmati rice",
         amount: 250,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "bell peppers", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "broccolies", amount: 2, unit: "whole", image: "imgOfItem" },
       { name: "garlic cloves", amount: 4, unit: "whole", image: "imgOfItem" },
-      { name: "firm tofu", amount: 560, unit: "grams", image: "imgOfItem" },
+      { name: "firm tofu", amount: 560, unit: "g", image: "imgOfItem" },
       {
         name: "teriyaki sauce",
         amount: 120,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "soy sauce", amount: 30, unit: "ml", image: "imgOfItem" },
@@ -1224,7 +1224,7 @@ export const RECIPE_BANK = [
     ingredients: [
       { name: "pak choi", amount: 4, unit: "whole", image: "imgOfItem" },
       { name: "limes", amount: 2, unit: "whole", image: "imgOfItem" },
-      { name: "firm tofu", amount: 560, unit: "grams", image: "imgOfItem" },
+      { name: "firm tofu", amount: 560, unit: "g", image: "imgOfItem" },
       {
         name: "thai style spice blend",
         amount: 2,
@@ -1234,25 +1234,25 @@ export const RECIPE_BANK = [
       {
         name: "red thai style paste",
         amount: 100,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "ginger puree", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "ginger puree", amount: 30, unit: "g", image: "imgOfItem" },
       { name: "coconut milk", amount: 400, unit: "ml", image: "imgOfItem" },
       {
         name: "vegetable stock paste",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       {
         name: "young pea pods/sugar snaps",
         amount: 160,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
-      { name: "udon noodles", amount: 400, unit: "grams", image: "imgOfItem" },
-      { name: "sambal paste", amount: 30, unit: "grams", image: "imgOfItem" },
+      { name: "udon noodles", amount: 400, unit: "g", image: "imgOfItem" },
+      { name: "sambal paste", amount: 30, unit: "g", image: "imgOfItem" },
       { name: "water", amount: 500, unit: "ml", image: "imgOfItem" },
     ],
     addedIngredients: [
@@ -1281,7 +1281,7 @@ export const RECIPE_BANK = [
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6750302bd4acb9b7600a9972/step-1b08b150.jpg",
     ingredients: [
-      { name: "firm tofu", amount: 280, unit: "grams", image: "imgOfItem" },
+      { name: "firm tofu", amount: 280, unit: "g", image: "imgOfItem" },
       { name: "natural yogurt", amount: 150, unit: "ml", image: "imgOfItem" },
       { name: "garlic granules", amount: 1, unit: "tsp", image: "imgOfItem" },
       { name: "ground cumin", amount: 2, unit: "tsp", image: "imgOfItem" },
@@ -1296,14 +1296,14 @@ export const RECIPE_BANK = [
       {
         name: "cherry tomatoes",
         amount: 150,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "cucumber", amount: 1, unit: "whole", image: "imgOfItem" },
       {
         name: "fresh coriander",
         amount: 20,
-        unit: "grams",
+        unit: "g",
         image: "imgOfItem",
       },
       { name: "lemon", amount: 1, unit: "whole", image: "imgOfItem" },

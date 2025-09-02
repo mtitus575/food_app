@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSP Header is now set by server -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://media.greenchef.com;
+      connect-src 'self' https://api.calorieninjas.com;
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+    "
+    />
     <link rel="stylesheet" href="./src/styles/main.css" />
     <link rel="stylesheet" href="./src/styles/components/allRecipesHome.css" />
     <link rel="stylesheet" href="./src/styles/responsive.css" />
@@ -18,13 +34,21 @@
     <main>
       <!-- Search bar -->
       <div class="search_wrapper">
-        <input type="text" class="search_input" />
+        <input
+          type="text"
+          class="search_input"
+          maxlength="100"
+          placeholder="Search recipes..."
+        />
         <button class="search_btn">Search</button>
       </div>
       <!-- Buttons -->
       <div class="main_btns">
         <button class="btn" id="getWeeklyRecipe">Get Weekly Recipes</button>
-        <button class="btn">Shopping List</button>
+        <button class="btn" id="resetWeeklyRecipe" style="display: none">
+          Reset Weekly Recipes
+        </button>
+        <button class="btn" id="shoppingListBtn" disabled>Shopping List</button>
       </div>
       <!-- Recipe total container -->
       <div class="hero">
@@ -33,6 +57,17 @@
         </section>
         <!-- Recipe Container -->
         <section id="recipe_wrapper"></section>
+      </div>
+
+      <!-- Shopping List Container -->
+      <div id="shopping_list_container" style="display: none">
+        <div class="shopping_list_header">
+          <h2>Shopping List</h2>
+          <button class="btn" id="closeShoppingList">
+            Close Shopping List
+          </button>
+        </div>
+        <div id="shopping_list_content"></div>
       </div>
     </main>
   </body>
