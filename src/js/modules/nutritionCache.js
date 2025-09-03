@@ -1,5 +1,5 @@
 // NUTRITION API INTEGRATION WITH SECURE KEY MANAGEMENT:
-import { api_key_calNinjas, hasApiKey } from "../../../assets/config.secure.js";
+import { api_key_calNinjas, hasApiKey } from "../../../assets/config.public.js";
 
 class NutritionAPI {
   constructor() {
