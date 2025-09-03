@@ -1,0 +1,32 @@
+/* The main is the container context */
+main {
+  container: card / inline-size;
+}
+
+/* Queries: */
+@container card (max-width: 500px) {
+  #recipe_wrapper {
+    display: block;
+  }
+  .recipe_item {
+    margin-bottom: 1rem;
+    background-color: var(--style-clr-4);
+  }
+  .recipe_item > h3 {
+    background-color: var(--style-clr-4);
+    margin: 1rem;
+    justify-self: center;
+  }
+  .recipe_item > img {
+    object-fit: none;
+  }
+  .btn {
+    font-size: 0.8rem;
+  }
+}
+@container card (width > 768px) {
+  #recipe_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

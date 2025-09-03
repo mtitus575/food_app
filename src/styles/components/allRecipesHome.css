@@ -5,8 +5,6 @@
 }
 
 .total_recipe_wrapper {
-  border: 1px solid;
-  box-sizing: border-box;
   width: fit-content;
 }
 
@@ -22,16 +20,17 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgb(195, 185, 173);
+  border: 1px solid var(--style-clr-4);
   height: auto;
   width: auto;
-  border-radius: 5px 5px 10px 10px;
+  border-radius: 10px;
 }
 .recipeImg {
   /* img styles for recipes on main screen */
-  border-bottom: 0.5px solid;
-  border-radius: 5px;
+  border-bottom: 0.1px solid;
+  border-radius: 10px;
   width: 100%;
+  object-fit: none;
 }
 .recipeName {
   margin: 0.5rem;
@@ -44,21 +43,3 @@
   left: 10px;
 }
 
-.main_btns {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 3rem;
-}
-
-
-
-#resetWeeklyRecipe {
-  background-color: #ff6b6b;
-  color: white;
-  border-color: #ff5252;
-}
-
-#resetWeeklyRecipe:hover {
-  background-color: #ff5252;
-  box-shadow: 1px 1px 6px rgba(255, 107, 107, 0.5);
-}

@@ -123,6 +123,7 @@ export const uiManager = {
       shoppingListBtn.disabled = !enable;
       shoppingListBtn.style.opacity = enable ? "1" : "0.6";
       shoppingListBtn.style.cursor = enable ? "pointer" : "not-allowed";
+      shoppingListBtn.style.display = enable ? "block" : "none";
     }
   },
 

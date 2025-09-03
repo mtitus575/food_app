@@ -1,0 +1,219 @@
+/* Continue Stlying from Here!! */
+/* Shopping List Styles */
+#shopping_list_container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shopping_list_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.shopping_list_header h2 {
+  background-color: white;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.shopping-list-info {
+  background-color: white;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.shopping-list-info p {
+  background-color: white;
+  margin: 5px 0;
+}
+
+.shopping-list-items {
+  background-color: white;
+}
+
+.shopping-list-item {
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.shopping-item-label {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shopping-item-checkbox {
+  background-color: white;
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.shopping-item-text {
+  background-color: white;
+  color: #333;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+}
+
+.shopping-item-text.checked {
+  background-color: white;
+  text-decoration: line-through;
+  color: #999;
+}
+
+.edit-shopping-item-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.edit-shopping-item-btn:hover {
+  background-color: #0056b3;
+}
+
+.shopping-item-edit-form {
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form-inputs {
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.edit-amount-input,
+.edit-unit-input,
+.edit-name-input {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.edit-amount-input {
+  width: 80px;
+}
+
+.edit-unit-input {
+  width: 80px;
+}
+
+.edit-name-input {
+  flex-grow: 1;
+  min-width: 150px;
+}
+
+.edit-form-buttons {
+  background-color: white;
+  display: flex;
+  gap: 10px;
+}
+
+.save-edit-btn,
+.cancel-edit-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.save-edit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.save-edit-btn:hover {
+  background-color: #218838;
+}
+
+.cancel-edit-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-edit-btn:hover {
+  background-color: #5a6268;
+}
+
+#shoppingListBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#closeShoppingList {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#closeShoppingList:hover {
+  background-color: #c82333;
+}
+
+/* Cooked Recipe Styles */
+.recipe-cooked {
+  opacity: 0.6;
+  background-color: #f8f9fa !important;
+  position: relative;
+}
+
+.recipe-cooked .recipeImg {
+  filter: grayscale(50%);
+  opacity: 0.7;
+}
+
+.recipe-cooked .recipeName {
+  color: #6c757d !important;
+  background-color: transparent !important;
+}
+
+.recipe-cooked .recipeCalories {
+  color: #6c757d !important;
+  background-color: transparent !important;
+}
+
+.cooked-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 10;
+}

@@ -1,0 +1,39 @@
+/* Buttons */
+.btn {
+  background-color: var(--style-clr-3);
+  border: none;
+  color: var(--style-clr-5);
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+  height: 2rem;
+  padding: 0 1rem;
+}
+
+.main_btns {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 3rem;
+}
+
+#resetWeeklyRecipe {
+  background-color: var(--style-clr-1);
+  color: var(--style-clr-5);
+  border-color: var(--style-clr-1);
+}
+
+#resetWeeklyRecipe:hover {
+  background-color: var(--style-clr-2);
+  box-shadow: 1px 1px 6px var(--style-clr-3);
+}
+
+/* Disabled Button Styles */
+.btn-disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  background-color: #6c757d !important;
+}
+
+.btn-disabled:hover {
+  background-color: #6c757d !important;
+}
