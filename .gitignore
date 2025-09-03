@@ -4,6 +4,7 @@
 
 # API Keys and Secrets - CRITICAL FOR SECURITY
 assets/config.js
+assets/config.secure.js
 **/api-keys.js
 **/secrets.js
 
