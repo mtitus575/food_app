@@ -1388,20 +1388,32 @@ function setupIngredientItemListeners(
             0.01,
             10000
           );
+          const oldAmount = ingredient.amount;
           ingredient.amount = numericValue;
 
           // Update input if validation changed the value
           if (parseFloat(this.value) !== numericValue) {
             this.value = numericValue;
           }
+
+          // If amount changed significantly, mark for nutrition re-fetch
+          if (Math.abs(oldAmount - numericValue) > 0.1) {
+            this.dataset.needsNutritionUpdate = "true";
+          }
         } else if (this.classList.contains("ingredient-unit-input")) {
           // Validate unit against allowed units
           sanitizedValue = Validator.validateUnit(this.value);
+          const oldUnit = ingredient.unit;
           ingredient.unit = sanitizedValue;
 
           // Update the input with sanitized value if different
           if (this.value !== sanitizedValue) {
             this.value = sanitizedValue;
+          }
+
+          // If unit changed, mark for nutrition re-fetch
+          if (oldUnit !== sanitizedValue) {
+            this.dataset.needsNutritionUpdate = "true";
           }
         }
 
@@ -1522,7 +1534,105 @@ function setupNutritionInputsForItem(ingredientItem, container, nutritionData) {
         const ingredientIndex = parseInt(this.dataset.ingredientIndex);
         const ingredient = nutritionData.ingredients[ingredientIndex];
 
-        // Collect new values from nutrition inputs
+        // Check if we need to refetch nutrition data due to amount/unit changes
+        const nameInput = ingredientItem.querySelector(
+          ".ingredient-name-input"
+        );
+        const amountInput = ingredientItem.querySelector(
+          ".ingredient-amount-input"
+        );
+        const unitInput = ingredientItem.querySelector(
+          ".ingredient-unit-input"
+        );
+
+        const needsNutritionUpdate =
+          amountInput?.dataset.needsNutritionUpdate === "true" ||
+          unitInput?.dataset.needsNutritionUpdate === "true";
+
+        if (needsNutritionUpdate) {
+          // Show loading state
+          this.innerText = "Updating nutrition...";
+          this.style.backgroundColor = "#ffc107";
+          this.disabled = true;
+
+          try {
+            // Create ingredient object for API call
+            const ingredientForAPI = {
+              name: ingredient.ingredient,
+              amount: ingredient.amount,
+              unit: ingredient.unit,
+            };
+
+            // Fetch fresh nutrition data with new amount/unit
+            const nutritionAPI = getIngredientData();
+            const freshNutritionData = await nutritionAPI.fetchIngredientData(
+              ingredientForAPI
+            );
+
+            if (
+              freshNutritionData &&
+              freshNutritionData.items &&
+              freshNutritionData.items.length > 0
+            ) {
+              const nutritionValues = freshNutritionData.items[0];
+
+              // Update ingredient with fresh nutrition data
+              const updatedNutrition = {
+                calories: nutritionValues.calories || 0,
+                protein_g: nutritionValues.protein_g || 0,
+                fat_total_g: nutritionValues.fat_total_g || 0,
+                carbohydrates_total_g:
+                  nutritionValues.carbohydrates_total_g || 0,
+                fiber_g: nutritionValues.fiber_g || 0,
+                sugar_g: nutritionValues.sugar_g || 0,
+                sodium_mg: nutritionValues.sodium_mg || 0,
+              };
+
+              // Update ingredient data in memory
+              Object.assign(ingredient, updatedNutrition);
+
+              // Update nutrition input values in the UI
+              const nutritionInputs =
+                ingredientItem.querySelectorAll(".nutrition-input");
+              nutritionInputs.forEach((input) => {
+                const field = input.dataset.field;
+                if (updatedNutrition.hasOwnProperty(field)) {
+                  const fieldData = [
+                    { field: "calories", decimals: 0 },
+                    { field: "protein_g", decimals: 1 },
+                    { field: "fat_total_g", decimals: 1 },
+                    { field: "carbohydrates_total_g", decimals: 1 },
+                    { field: "fiber_g", decimals: 1 },
+                    { field: "sugar_g", decimals: 1 },
+                    { field: "sodium_mg", decimals: 0 },
+                  ].find((f) => f.field === field);
+
+                  if (fieldData) {
+                    input.value = updatedNutrition[field].toFixed(
+                      fieldData.decimals
+                    );
+                  }
+                }
+              });
+
+              // Clear the update flags
+              if (amountInput)
+                amountInput.dataset.needsNutritionUpdate = "false";
+              if (unitInput) unitInput.dataset.needsNutritionUpdate = "false";
+            } else {
+              console.warn(
+                "Could not fetch fresh nutrition data, using existing values"
+              );
+            }
+          } catch (error) {
+            console.error("Error fetching fresh nutrition data:", error);
+            // Continue with manual save if auto-fetch fails
+          }
+
+          this.disabled = false;
+        }
+
+        // Collect current values from nutrition inputs (either fresh or manually edited)
         const nutritionInputs =
           ingredientItem.querySelectorAll(".nutrition-input");
         const newValues = {};
