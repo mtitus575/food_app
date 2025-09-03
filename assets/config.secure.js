@@ -8,8 +8,9 @@ let api_key_calNinjas;
 
 // Check if we're in development or production
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    // Development environment - use your actual API key
-    api_key_calNinjas = "27iGMuBcKavL+CtfX81Tzg==AhVVt6kqccf7sLwX"; // Your actual key for local development
+    // Development environment - you need to add your API key here locally
+    // Create a separate config.js file with your real API key for local development
+    api_key_calNinjas = "YOUR_API_KEY_HERE"; // Replace with your actual key locally
 } else {
     // Production environment - use user-provided key or demo mode
     api_key_calNinjas = localStorage.getItem('userApiKey') || null;
