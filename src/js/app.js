@@ -15,7 +15,7 @@ import {
 function startApp() {
   // Initialize API key management for production
   ApiKeyManager.init();
-  
+
   // Initialize the data manager - only call this once
   const data = DataManager.init();
 

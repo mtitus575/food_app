@@ -2,30 +2,33 @@
 // This allows users to provide their own CalorieNinjas API key
 
 const ApiKeyManager = {
-    init() {
-        this.checkApiKey();
-    },
+  init() {
+    this.checkApiKey();
+  },
 
-    checkApiKey() {
-        const savedKey = localStorage.getItem('userApiKey');
-        if (!savedKey && this.isProduction()) {
-            this.showApiKeyModal();
-        }
-    },
+  checkApiKey() {
+    const savedKey = localStorage.getItem("userApiKey");
+    if (!savedKey && this.isProduction()) {
+      this.showApiKeyModal();
+    }
+  },
 
-    isProduction() {
-        return window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-    },
+  isProduction() {
+    return (
+      window.location.hostname !== "localhost" &&
+      window.location.hostname !== "127.0.0.1"
+    );
+  },
 
-    showApiKeyModal() {
-        const modal = this.createApiKeyModal();
-        document.body.appendChild(modal);
-    },
+  showApiKeyModal() {
+    const modal = this.createApiKeyModal();
+    document.body.appendChild(modal);
+  },
 
-    createApiKeyModal() {
-        const modal = document.createElement('div');
-        modal.className = 'api-key-modal';
-        modal.innerHTML = `
+  createApiKeyModal() {
+    const modal = document.createElement("div");
+    modal.className = "api-key-modal";
+    modal.innerHTML = `
             <div class="api-key-modal-content">
                 <h2>🔑 API Key Required</h2>
                 <p>This app uses the CalorieNinjas API for nutrition data. You can:</p>
@@ -55,39 +58,39 @@ const ApiKeyManager = {
             </div>
         `;
 
-        this.setupModalEvents(modal);
-        return modal;
-    },
+    this.setupModalEvents(modal);
+    return modal;
+  },
 
-    setupModalEvents(modal) {
-        // Save API key
-        modal.querySelector('#save-api-key').addEventListener('click', () => {
-            const apiKey = modal.querySelector('#api-key-input').value.trim();
-            if (apiKey) {
-                localStorage.setItem('userApiKey', apiKey);
-                localStorage.setItem('nutritionMode', 'api');
-                modal.remove();
-                location.reload(); // Restart app with API key
-            } else {
-                alert('Please enter a valid API key');
-            }
-        });
+  setupModalEvents(modal) {
+    // Save API key
+    modal.querySelector("#save-api-key").addEventListener("click", () => {
+      const apiKey = modal.querySelector("#api-key-input").value.trim();
+      if (apiKey) {
+        localStorage.setItem("userApiKey", apiKey);
+        localStorage.setItem("nutritionMode", "api");
+        modal.remove();
+        location.reload(); // Restart app with API key
+      } else {
+        alert("Please enter a valid API key");
+      }
+    });
 
-        // Demo mode
-        modal.querySelector('#demo-mode').addEventListener('click', () => {
-            localStorage.setItem('nutritionMode', 'demo');
-            localStorage.setItem('userApiKey', 'DEMO_MODE');
-            modal.remove();
-            location.reload(); // Restart app in demo mode
-        });
+    // Demo mode
+    modal.querySelector("#demo-mode").addEventListener("click", () => {
+      localStorage.setItem("nutritionMode", "demo");
+      localStorage.setItem("userApiKey", "DEMO_MODE");
+      modal.remove();
+      location.reload(); // Restart app in demo mode
+    });
 
-        // Enter key support
-        modal.querySelector('#api-key-input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                modal.querySelector('#save-api-key').click();
-            }
-        });
-    }
+    // Enter key support
+    modal.querySelector("#api-key-input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        modal.querySelector("#save-api-key").click();
+      }
+    });
+  },
 };
 
 export { ApiKeyManager };
