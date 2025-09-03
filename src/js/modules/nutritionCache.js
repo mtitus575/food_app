@@ -1,17 +1,23 @@
-// NUTRITION API INTEGRATION:
-import { api_key_calNinjas } from "../../../assets/config.js";
+// NUTRITION API INTEGRATION WITH SECURE KEY MANAGEMENT:
+import { api_key_calNinjas, hasApiKey } from "../../../assets/config.secure.js";
 
 class NutritionAPI {
   constructor() {
     this.baseURL = "https://api.calorieninjas.com/v1/nutrition";
     this.apiKey = api_key_calNinjas;
     this.cache = this.loadCache();
+    this.isDemo = localStorage.getItem('nutritionMode') === 'demo';
 
     // Rate limiting: store request timestamps
     this.requestTimestamps = [];
     this.MAX_REQUESTS_PER_MINUTE = 10; // Adjust based on API limits
     this.requestDelay = 100; // Minimum delay between requests (ms)
     this.lastRequestTime = 0;
+  }
+
+  // Check if we can make API calls
+  canUseAPI() {
+    return hasApiKey() && !this.isDemo && this.apiKey !== 'DEMO_MODE';
   }
 
   // Load cache from localStorage
@@ -80,6 +86,11 @@ class NutritionAPI {
       return this.cache[cacheKey];
     }
 
+    // If no API key available or in demo mode, return mock data
+    if (!this.canUseAPI()) {
+      return this.generateMockNutritionData(ingredient);
+    }
+
     try {
       // Rate limiting check
       await this.enforceRateLimit();
@@ -119,23 +130,87 @@ class NutritionAPI {
       );
 
       // Fallback to mock data if API fails
-      // console.log(`Falling back to mock data for: ${ingredient.name}`);
-      const mockData = {
-        items: [
-          {
-            calories: Math.floor(Math.random() * 100) + 50,
-            protein_g: Math.floor(Math.random() * 10) + 2,
-            fat_total_g: Math.floor(Math.random() * 8) + 1,
-            carbohydrates_total_g: Math.floor(Math.random() * 20) + 5,
-            fiber_g: Math.floor(Math.random() * 3) + 1,
-            sugar_g: Math.floor(Math.random() * 5) + 1,
-            sodium_mg: Math.floor(Math.random() * 200) + 50,
-          },
-        ],
-      };
-
-      return mockData;
+      return this.generateMockNutritionData(ingredient);
     }
+  }
+
+  // Generate realistic mock nutrition data
+  generateMockNutritionData(ingredient) {
+    console.log(`📊 Using demo nutrition data for: ${ingredient.name}`);
+    
+    // Base nutrition values per 100g (realistic averages)
+    const nutritionBases = {
+      // Proteins
+      'chicken': { calories: 165, protein_g: 31, fat_total_g: 3.6, carbohydrates_total_g: 0 },
+      'beef': { calories: 250, protein_g: 26, fat_total_g: 17, carbohydrates_total_g: 0 },
+      'salmon': { calories: 208, protein_g: 22, fat_total_g: 12, carbohydrates_total_g: 0 },
+      'cod': { calories: 82, protein_g: 18, fat_total_g: 0.7, carbohydrates_total_g: 0 },
+      
+      // Vegetables
+      'tomato': { calories: 18, protein_g: 0.9, fat_total_g: 0.2, carbohydrates_total_g: 3.9 },
+      'onion': { calories: 40, protein_g: 1.1, fat_total_g: 0.1, carbohydrates_total_g: 9.3 },
+      'bell pepper': { calories: 31, protein_g: 1, fat_total_g: 0.3, carbohydrates_total_g: 7 },
+      'carrot': { calories: 41, protein_g: 0.9, fat_total_g: 0.2, carbohydrates_total_g: 10 },
+      
+      // Grains
+      'rice': { calories: 130, protein_g: 2.7, fat_total_g: 0.3, carbohydrates_total_g: 28 },
+      'pasta': { calories: 131, protein_g: 5, fat_total_g: 1.1, carbohydrates_total_g: 25 },
+      
+      // Default for unknown ingredients
+      'default': { calories: 50, protein_g: 2, fat_total_g: 1, carbohydrates_total_g: 8 }
+    };
+
+    // Find best match for ingredient
+    const ingredientName = ingredient.name.toLowerCase();
+    let nutritionBase = nutritionBases.default;
+    
+    for (const [key, value] of Object.entries(nutritionBases)) {
+      if (ingredientName.includes(key)) {
+        nutritionBase = value;
+        break;
+      }
+    }
+
+    // Scale nutrition based on amount and unit
+    const scaleFactor = this.calculateScaleFactor(ingredient.amount, ingredient.unit);
+    
+    const mockData = {
+      items: [
+        {
+          calories: Math.round(nutritionBase.calories * scaleFactor),
+          protein_g: Math.round(nutritionBase.protein_g * scaleFactor * 10) / 10,
+          fat_total_g: Math.round(nutritionBase.fat_total_g * scaleFactor * 10) / 10,
+          carbohydrates_total_g: Math.round(nutritionBase.carbohydrates_total_g * scaleFactor * 10) / 10,
+          fiber_g: Math.round(nutritionBase.carbohydrates_total_g * 0.1 * scaleFactor * 10) / 10,
+          sugar_g: Math.round(nutritionBase.carbohydrates_total_g * 0.3 * scaleFactor * 10) / 10,
+          sodium_mg: Math.round(50 * scaleFactor),
+        },
+      ],
+      isDemoData: true
+    };
+
+    // Cache demo data too
+    this.cache[this.getCacheKey(ingredient)] = mockData;
+    this.saveCache();
+
+    return mockData;
+  }
+
+  // Calculate scaling factor for different units
+  calculateScaleFactor(amount, unit) {
+    const unitConversions = {
+      'g': amount / 100,          // Nutrition bases are per 100g
+      'ml': amount / 100,         // Approximate for liquids
+      'tbsp': amount * 15 / 100,  // 1 tbsp ≈ 15ml
+      'tsp': amount * 5 / 100,    // 1 tsp ≈ 5ml
+      'whole': amount * 0.5,      // Approximate for whole items
+      'cup': amount * 200 / 100,  // 1 cup ≈ 200g average
+      'piece': amount * 0.3,      // Approximate for pieces
+      'can': amount * 400 / 100,  // 1 can ≈ 400g
+      'pack': amount * 250 / 100, // 1 pack ≈ 250g
+    };
+
+    return unitConversions[unit.toLowerCase()] || amount / 100;
   }
 
   // Fetch nutrition data for all ingredients in a recipe

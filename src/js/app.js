@@ -3,6 +3,7 @@
 //Import modules here:
 import { DataManager } from "./modules/dataManager.js";
 import { uiManager } from "./modules/uiManager.js";
+import { ApiKeyManager } from "./modules/apiKeyManager.js";
 import {
   selectWeeklyRecipes,
   isTimeToReset,
@@ -12,6 +13,9 @@ import {
 } from "./modules/mealPlanner.js";
 
 function startApp() {
+  // Initialize API key management for production
+  ApiKeyManager.init();
+  
   // Initialize the data manager - only call this once
   const data = DataManager.init();
 

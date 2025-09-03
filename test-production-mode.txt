@@ -1,0 +1,8 @@
+// Test Production Mode
+// Temporarily add this to config.secure.js to test production behavior
+
+// UNCOMMENT THIS LINE TO TEST PRODUCTION MODE:
+// if (true) { // Force production mode for testing
+
+// COMMENT OUT THIS LINE WHEN TESTING:
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {

@@ -2,6 +2,11 @@
 # * is used to match a wildcard
 # / is used to ignore pathnames relative to the current gitignore file.
 
+# API Keys and Secrets - CRITICAL FOR SECURITY
+assets/config.js
+**/api-keys.js
+**/secrets.js
+
 # Dependencies
 node_modules/
 npm-debug.log*
