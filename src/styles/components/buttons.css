@@ -27,6 +27,7 @@
   box-shadow: 1px 1px 6px var(--style-clr-3);
 }
 
+/* Below has not been adjusted yet */
 /* Disabled Button Styles */
 .btn-disabled {
   opacity: 0.6 !important;

@@ -68,7 +68,7 @@
   background-color: var(--style-clr-4);
 }
 
-/* The below is not yet adjusted */
+/* The below is not yet adjusted : I need to figure where this is and what it does*/
 /* Disabled Nutrition Input Styles */
 .nutrition-disabled {
   background-color: #f8f9fa !important;

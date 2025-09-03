@@ -33,13 +33,16 @@
   object-fit: none;
 }
 .recipeName {
-  margin: 0.5rem;
+  margin: 2rem 0.5rem;
   text-align: center;
-  margin-bottom: 2rem;
 }
+
 .recipeCalories {
+  /* 
+  This feature is not active for now 
+  It will eventually be added to show meal calories on home screen
+  */
   position: absolute;
   bottom: 0;
   left: 10px;
 }
-
