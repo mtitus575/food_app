@@ -50,13 +50,7 @@
   padding: 0 3rem;
 }
 
-.btn {
-  border: 1px solid;
-  border-radius: 50px;
-  height: 2rem;
-  padding: 0 1rem;
-  box-shadow: 1px 1px 4px;
-}
+
 
 #resetWeeklyRecipe {
   background-color: #ff6b6b;

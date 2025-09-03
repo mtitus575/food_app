@@ -1,41 +1,74 @@
+:root {
+  --style-clr-1: #212a31;
+  --style-clr-2: #2e3944;
+  --style-clr-3: #124e66;
+  --style-clr-4: #748d92;
+  --style-clr-5: #d3d9d4;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(234, 212, 179);
+  background-color: var(--style-clr-5);
   text-align: center;
 }
 
 #header {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 }
 
 #menu_icon {
-  width: 2rem;
+  /* disabled for now until a menu feature is added */
+  width: 1.7rem;
+}
+
+#title {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
 .search_wrapper {
   position: relative;
   width: 90%;
+  box-sizing: content-box;
 }
 
 .search_input {
   width: 100%;
   height: 2rem;
-  background-color: rgb(245, 226, 202);
+  background-color: var(--style-clr-5);
+  opacity: 50%;
   border-radius: 50px;
-  border: solid 1px rgb(192, 183, 172);
+  border: solid 1px var(--style-clr-4);
   padding: 0;
 }
 
 .search_btn {
   position: absolute;
-  right: -1%;
   top: 0;
   height: 100%;
+  right: 0;
   border-radius: 50px;
-  border: 1px solid rgb(192, 183, 172);
+  border: none;
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--style-clr-4);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--style-clr-3);
+  border: none;
+  color: var(--style-clr-5);
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+  height: 2rem;
+  padding: 0 1rem;
 }
 
 /* Shopping List Styles */
