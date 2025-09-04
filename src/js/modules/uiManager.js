@@ -548,6 +548,10 @@ const uiEventHandlers = {
     ) {
       // console.log(`Displaying shopping list with ${shoppingListData.items.length} items`);
       uiManager.showShoppingList(shoppingListData);
+
+      //Get reference to buttons to hide:
+      const resetBtn = document.getElementById("resetWeeklyRecipe");
+      resetBtn.style.display = "none";
       const shoppingListBtn = document.getElementById("shoppingListBtn");
       shoppingListBtn.style.display = "none";
     } else {
@@ -561,8 +565,11 @@ const uiEventHandlers = {
 
     // console.log("Close Shopping List button was clicked!");
     uiManager.hideShoppingList();
+    //Get reference to buttons to show:
     const shoppingListBtn = document.getElementById("shoppingListBtn");
     shoppingListBtn.style.display = "block";
+    const resetBtn = document.getElementById("resetWeeklyRecipe");
+    resetBtn.style.display = "block";
   },
 };
 

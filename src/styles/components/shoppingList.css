@@ -1,72 +1,55 @@
 /* Continue Styling from Here!! */
 /* Shopping List Styles */
 #shopping_list_container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 95%;
+  margin: 1rem auto;
+  padding: 1.25rem;
 }
 
 .shopping_list_header {
+  position: sticky;
+  top: 60px;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--style-clr-4);
 }
 
 .shopping_list_header h2 {
-  background-color: white;
-  color: #333;
+  color: var(--style-clr-1);
   font-size: 1.5rem;
 }
 
-#closeShoppingList {
-  /* position:fixed ;
-  bottom: 3rem;
-  right: 1rem;
-  z-index: 7; */
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#closeShoppingList:hover {
-  background-color: #c82333;
-}
-
 .shopping-list-info {
-  background-color: white;
+  background-color: var(--style-clr-6);
   text-align: left;
-  margin-bottom: 20px;
-  color: #666;
+  margin-bottom: 1rem;
+  color: var(--style-clr-2);
 }
 
 .shopping-list-info p {
-  background-color: white;
-  margin: 5px 0;
+  background-color: var(--style-clr-6);
+  margin: 0.25rem 0;
 }
 
 .shopping-list-items {
-  background-color: white;
+  background-color: var(--style-clr-6);
 }
 
 .shopping-list-item {
-  background-color: white;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #eee;
+  background-color: var(--style-clr-6);
+  padding: 0.5rem;
+  border: 1px solid var(--style-clr-5);
   border-radius: 4px;
   text-align: left;
 }
 
 .shopping-item-label {
-  background-color: white;
+  background-color: var(--style-clr-6);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -75,50 +58,49 @@
 }
 
 .shopping-item-checkbox {
-  background-color: white;
+  background-color: var(--style-clr-6);
   margin-right: 10px;
   transform: scale(1.2);
 }
 
 .shopping-item-text {
-  background-color: white;
-  color: #333;
+  background-color: var(--style-clr-6);
+  color: var(--style-clr-2);
   font-size: 1rem;
   transition: all 0.3s ease;
   flex-grow: 1;
 }
 
 .shopping-item-text.checked {
-  background-color: white;
+  background-color: var(--style-clr-6);
   text-decoration: line-through;
-  color: #999;
+  color: var(--style-clr-4);
 }
 
 .edit-shopping-item-btn {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--style-clr-3);
+  color: var(--style-clr-6);
   border: none;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.8rem;
-  margin-left: 10px;
 }
 
 .edit-shopping-item-btn:hover {
-  background-color: #0056b3;
+  background-color: var(--style-clr-4);
 }
 
 .shopping-item-edit-form {
-  background-color: white;
+  background-color: var(--style-clr-6);
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--style-clr-5);
   border-radius: 4px;
 }
 
 .edit-form-inputs {
-  background-color: white;
+  background-color: var(--style-clr-6);
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
@@ -128,8 +110,8 @@
 .edit-amount-input,
 .edit-unit-input,
 .edit-name-input {
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: var(--style-clr-6);
+  border: 1px solid var(--style-clr-4);
   border-radius: 4px;
   padding: 5px;
   font-size: 0.9rem;
@@ -149,7 +131,7 @@
 }
 
 .edit-form-buttons {
-  background-color: white;
+  background-color: var(--style-clr-6);
   display: flex;
   gap: 10px;
 }
@@ -165,7 +147,7 @@
 
 .save-edit-btn {
   background-color: #28a745;
-  color: white;
+  color: var(--style-clr-6);
 }
 
 .save-edit-btn:hover {
@@ -174,7 +156,7 @@
 
 .cancel-edit-btn {
   background-color: #6c757d;
-  color: white;
+  color: var(--style-clr-6);
 }
 
 .cancel-edit-btn:hover {
@@ -185,7 +167,6 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
-
 
 /* Cooked Recipe Styles */
 .recipe-cooked {
@@ -214,7 +195,7 @@
   top: 10px;
   right: 10px;
   background-color: #28a745;
-  color: white;
+  color: var(--style-clr-6);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.8rem;

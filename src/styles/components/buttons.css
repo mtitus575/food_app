@@ -34,15 +34,21 @@
   background-color: var(--style-clr-4);
 }
 
-#resetWeeklyRecipe {
+#resetWeeklyRecipe, #closeShoppingList {
   background-color: var(--style-clr-1);
   color: var(--style-clr-5);
   border-color: var(--style-clr-1);
 }
 
-#resetWeeklyRecipe:hover {
+#resetWeeklyRecipe:hover, #closeShoppingList:hover {
   background-color: var(--style-clr-2);
-  box-shadow: 1px 1px 6px var(--style-clr-3);
+  box-shadow: 1px 1px 2px var(--style-clr-2);
+}
+
+#resetWeeklyRecipe:active, #closeShoppingList:active {
+  background-color: var(--style-clr-1);
+  color: var(--style-clr-5);
+  border-color: var(--style-clr-1);
 }
 
 /* Below has not been adjusted yet */
