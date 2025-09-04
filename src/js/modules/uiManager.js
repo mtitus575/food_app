@@ -100,8 +100,10 @@ export const uiManager = {
   // Function to show/hide the reset button based on weekly recipes status
   toggleResetButton: function (show) {
     const resetBtn = document.getElementById("resetWeeklyRecipe");
+    const weeklyBtn = document.getElementById("getWeeklyRecipe");
     if (resetBtn) {
       resetBtn.style.display = show ? "block" : "none";
+      weeklyBtn.style.display = show ? "none" : "block";
     }
   },
 
