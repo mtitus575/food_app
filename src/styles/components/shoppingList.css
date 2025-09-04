@@ -4,7 +4,6 @@
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -22,6 +21,23 @@
   background-color: white;
   color: #333;
   font-size: 1.5rem;
+}
+
+#closeShoppingList {
+  /* position:fixed ;
+  bottom: 3rem;
+  right: 1rem;
+  z-index: 7; */
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#closeShoppingList:hover {
+  background-color: #c82333;
 }
 
 .shopping-list-info {
@@ -170,18 +186,6 @@
   cursor: not-allowed;
 }
 
-#closeShoppingList {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#closeShoppingList:hover {
-  background-color: #c82333;
-}
 
 /* Cooked Recipe Styles */
 .recipe-cooked {

@@ -548,6 +548,8 @@ const uiEventHandlers = {
     ) {
       // console.log(`Displaying shopping list with ${shoppingListData.items.length} items`);
       uiManager.showShoppingList(shoppingListData);
+      const shoppingListBtn = document.getElementById("shoppingListBtn");
+      shoppingListBtn.style.display = "none";
     } else {
       alert("No weekly recipes selected. Please select weekly recipes first.");
     }
@@ -559,6 +561,8 @@ const uiEventHandlers = {
 
     // console.log("Close Shopping List button was clicked!");
     uiManager.hideShoppingList();
+    const shoppingListBtn = document.getElementById("shoppingListBtn");
+    shoppingListBtn.style.display = "block";
   },
 };
 

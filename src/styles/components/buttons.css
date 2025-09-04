@@ -10,6 +10,11 @@
   padding: 0 1rem;
 }
 
+.btn:hover {
+  background-color: var(--style-clr-3);
+  box-shadow: 1px 1px 6px var(--style-clr-2);
+}
+
 .main_btns {
   display: flex;
   justify-content: space-around;
