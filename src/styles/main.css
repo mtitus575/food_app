@@ -4,7 +4,7 @@
   --style-clr-3: #124e66;
   --style-clr-4: #748d92;
   --style-clr-5: #d3d9d4;
-  --style-clr-6:#f2eded;
+  --style-clr-6: #f2eded;
 }
 
 * {
@@ -32,7 +32,7 @@
   font-weight: 800;
 }
 
-.sticky{
+.sticky {
   position: sticky;
   top: 0;
   z-index: 5;
@@ -55,10 +55,8 @@
   opacity: 50%;
   border-radius: 50px;
   border: solid 1px var(--style-clr-4);
-  padding: 0 0 0 .5rem;
+  padding: 0 0 0 0.5rem;
 }
-
-
 
 /* The below is not yet adjusted : I need to figure where this is and what it does*/
 /* Disabled Nutrition Input Styles */
@@ -73,4 +71,3 @@
   outline: none !important;
   box-shadow: none !important;
 }
-

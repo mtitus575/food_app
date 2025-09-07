@@ -118,11 +118,11 @@
 }
 
 .edit-amount-input {
-  width: 80px;
+  width: 4rem;
 }
 
 .edit-unit-input {
-  width: 80px;
+  width: 5rem;
 }
 
 .edit-name-input {
@@ -133,7 +133,7 @@
 .edit-form-buttons {
   background-color: var(--style-clr-6);
   display: flex;
-  gap: 10px;
+  gap: .7rem;
 }
 
 .save-edit-btn,

@@ -1,10 +1,12 @@
 /* The main is the container context */
-main {
+main,
+.recipeHero {
   container: card / inline-size;
 }
 
 /* Queries: */
 @container card (max-width: 500px) {
+  /* MainScreen Recipes */
   #recipe_wrapper {
     display: block;
   }
@@ -24,7 +26,20 @@ main {
   .btn {
     font-size: 0.8rem;
   }
+
+  /* Selected recipe responsive design */
+  .recipeMainImage {
+    max-width: 80%;
+    object-fit: none;
+  }
+  .recipeMainHighlights {
+    /* Decide on page layout for different screen on paper first */
+    /* display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(12, 1fr); */
+  }
 }
+
 @container card (width > 768px) {
   #recipe_wrapper {
     display: grid;
