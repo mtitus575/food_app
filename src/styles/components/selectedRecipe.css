@@ -57,6 +57,7 @@
   border-radius: 5px;
   display: inline-flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
   padding: 10px;
   margin: 10px;
 }
@@ -78,14 +79,8 @@
   max-width: fit-content;
 }
 .recipeMainInstructions {
-  /* border: 2px solid brown; */
-  /* background-color: rgb(246, 248, 211);
-  height: auto;
   min-height: 200px;
-  padding: 15px;
-  color: black;
-  font-size: 1.1rem;
-  line-height: 1.5; */
+  height: auto;
 }
 
 .instructions-list {
@@ -96,21 +91,16 @@
   list-style-position: inside;
   margin: 0.5rem 0;
 }
-.ingredients-list {
-  /* individual items */
-  /* text-align: left;
-  border: 1px solid green; */
-}
 
 /* Nutrition Information Styles */
 .nutrition-container {
   margin: 2rem 0;
-  border: 3px saddlebrown solid; /*REMOVE: Only for editing*/
 }
 
 .nutrition-section {
   border: 2px solid var(--style-clr-4);
   border-radius: 5px;
+  box-shadow: 0.1px 1px 1px 1px var(--style-clr-2);
   margin-bottom: 1rem;
 }
 
@@ -154,12 +144,13 @@
 
 /* Individual Ingredient Nutrition Styles */
 .ingredient-nutrition-section {
-  border: 2px solid #ffc107;
+  /* I AM WORKING HERE NEXT!! */
+  /* 
+  1. Make this section only display on clicking an edit button 
+  2. This must be done in JS.
+  */
+
   /* display: none; */
-  /* background-color: #fff3cd;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 15px 0; */
 }
 .ingredient-nutrition-list {
   display: inline-flex;
@@ -171,16 +162,8 @@
   border: 2px solid var(--style-clr-4);
   border-radius: 10px;
   padding: 0.5rem;
-}
-
-.ingredient-name {
-  /*
-  font-size: 1rem;
-  color: #2f81d3;
-   margin: 0 0 8px 0;
-  font-weight: bold;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 5px; */
+  width: 100%; /* Prevent child overflow */
+  box-sizing: border-box;
 }
 
 .ingredient-nutrition-grid {
@@ -220,7 +203,8 @@
 }
 
 .save-ingredient-btn {
-  /* background-color: #28a745; */
+  background-color: #28a745;
+  transition: background-color 0.15s ease-in-out;
   /*   
   color: white;
   border: none;
@@ -229,36 +213,24 @@
   font-size: 0.8rem;
   cursor: pointer;
   margin-top: 8px;
-  transition: background-color 0.15s ease-in-out; */
+  */
 }
 
 .save-ingredient-btn:active {
-  /* background-color: #1e7e34; */
+  background-color: #1e7e34;
 }
 
 .save-ingredient-btn:disabled {
-  /* background-color: #6c757d;
-  cursor: not-allowed; */
+  background-color: #6c757d;
+  cursor: not-allowed;
 }
 
 /* Improved ingredient item layout for editing */
 .ingredient-nutrition-item[data-ingredient-index] {
-  /* transition: background-color 0.2s ease; */
-}
-
-.ingredient-nutrition-item[data-ingredient-index]:hover {
-  /* background-color: #f8f9fa; */
+  transition: background-color 0.2s ease;
 }
 
 /* Nutrition Display Styles */
-.nutrition-container {
-  /* margin: 20px 0; */
-}
-
-.ingredient-nutrition-section {
-  /* margin-top: 20px; */
-}
-
 .ingredients-header {
   display: flex;
   align-items: center;
@@ -268,15 +240,7 @@
 }
 
 .add-ingredient-btn:hover {
-  /* background: #218838 !important; */
-}
-
-.ingredient-nutrition-item {
-  /* border: 1px solid #e0e0e0; */
-  /* border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: #fafafa; */
+  background: #218838 !important;
 }
 
 .ingredient-header {
@@ -291,29 +255,24 @@
   width: 50px;
 }
 
-.ingredient-nutrition-item {
-  width: 100%; /* Prevent child overflow */
-  box-sizing: border-box;
-}
-
 .ingredient-name-input,
 .ingredient-amount-input,
 .ingredient-unit-input {
-  /* transition: all 0.2s ease; */
+  transition: all 0.2s ease;
 }
 
 .ingredient-name-input:focus,
 .ingredient-amount-input:focus,
 .ingredient-unit-input:focus,
 .nutrition-input:focus {
-  /* outline: none;
+  outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .remove-ingredient-btn:hover {
-  /* background: #c82333 !important;
-  transform: scale(1.1); */
+  background: #c42b3a !important;
+  transform: scale(1.1);
 }
 
 .ingredient-buttons {
@@ -324,6 +283,6 @@
 
 .save-ingredient-btn:hover,
 .fetch-nutrition-btn:hover {
-  /* opacity: 0.9;
-  transform: translateY(-1px); */
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
