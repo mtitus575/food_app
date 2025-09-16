@@ -711,7 +711,7 @@ async function makeSection(recipe) {
     }
 
     const basicInfo = createComponent("article", "recipeBasicInfo");
-    highlights.append(recipeTitle, ingredientList, basicInfo);
+    highlights.append(recipeTitle,basicInfo, ingredientList);
 
     //Create and append details to `basicInfo` container:
     const servings = createComponent("p");
