@@ -114,15 +114,6 @@
   margin-bottom: 1rem;
 }
 
-.ingredient-nutrition-section {
-  border: 2px solid #ffc107;
-  /* display: none; */
-  /* background-color: #fff3cd;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 15px 0; */
-}
-
 .nutrition-title {
   margin-bottom: 0.8rem;
   text-align: center;
@@ -162,73 +153,75 @@
 }
 
 /* Individual Ingredient Nutrition Styles */
+.ingredient-nutrition-section {
+  border: 2px solid #ffc107;
+  /* display: none; */
+  /* background-color: #fff3cd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0; */
+}
 .ingredient-nutrition-list {
-  /* display: flex;
-  flex-direction: column;
-  gap: 15px; */
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .ingredient-nutrition-item {
-  /* background-color: white;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  padding: 12px; */
+  border: 2px solid var(--style-clr-4);
+  border-radius: 10px;
+  padding: 0.5rem;
 }
 
 .ingredient-name {
-  /* margin: 0 0 8px 0;
-  color: #495057;
+  /*
   font-size: 1rem;
+  color: #2f81d3;
+   margin: 0 0 8px 0;
   font-weight: bold;
   border-bottom: 1px solid #dee2e6;
   padding-bottom: 5px; */
 }
 
 .ingredient-nutrition-grid {
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-  */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
 }
 
 .ingredient-nutrition-fact {
-  /* background-color: #f8f9fa;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  color: #495057;
-  border: 1px solid #dee2e6;
-  white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 4px; */
+  gap: 4px;
+  font-size: 0.85rem;
 }
 
 /* Editable Nutrition Input Styles */
 .nutrition-input {
-  /* width: 60px;
-  padding: 2px 4px;
-  border: 1px solid #ced4da;
+  border: 1px solid #b2b3b5;
   border-radius: 3px;
+  width: 50px;
+  padding: 2px 0;
   font-size: 0.85rem;
-  background-color: white;
   text-align: center;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+  background-color: var(--style-clr-6);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .nutrition-input:focus {
-  /* outline: 0;
-  border-color: #80bdff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+  outline: 0;
+  border-color: var(--style-clr-3);
+  box-shadow: 0 0 0 0.1rem var(--style-clr-4);
 }
 
 .nutrition-input:hover {
-  /* border-color: #adb5bd; */
+  border-color: #adb5bd;
 }
 
 .save-ingredient-btn {
-  /* background-color: #28a745;
+  /* background-color: #28a745; */
+  /*   
   color: white;
   border: none;
   padding: 6px 12px;
@@ -237,10 +230,6 @@
   cursor: pointer;
   margin-top: 8px;
   transition: background-color 0.15s ease-in-out; */
-}
-
-.save-ingredient-btn:hover {
-  /* background-color: #218838; */
 }
 
 .save-ingredient-btn:active {
@@ -271,11 +260,11 @@
 }
 
 .ingredients-header {
-  /* 
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
   justify-content: space-between;
-  margin-bottom: 15px; */
+  flex-direction: column;
 }
 
 .add-ingredient-btn:hover {
@@ -291,9 +280,15 @@
 }
 
 .ingredient-header {
+  border: 1px solid var(--style-clr-4);
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   flex-wrap: wrap;
+  min-width: 300px;
+}
+.ingredient-header > input {
+  color: var(--style-clr-2);
+  width: 50px;
 }
 
 .ingredient-nutrition-item {
@@ -321,66 +316,14 @@
   transform: scale(1.1); */
 }
 
-.ingredient-nutrition-grid {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
-  margin: 15px 0; */
-}
-
-.ingredient-nutrition-fact {
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 14px; */
-}
-
-.nutrition-input {
-  /* width: 80px;
-  margin: 0 5px;
-  padding: 2px 6px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  transition: all 0.2s ease; */
-}
-
 .ingredient-buttons {
-  /* display: flex;
-  gap: 10px;
-  align-items: center; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .save-ingredient-btn:hover,
 .fetch-nutrition-btn:hover {
   /* opacity: 0.9;
   transform: translateY(-1px); */
-}
-
-.nutrition-grid {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin: 15px 0; */
-}
-
-.nutrition-fact {
-  /* background-color: white;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-  text-align: center; */
-}
-
-.nutrition-label {
-  /* font-weight: bold;
-  color: #666;
-  font-size: 14px; */
-}
-
-.nutrition-value {
-  /* font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px;
-  display: block; */
 }

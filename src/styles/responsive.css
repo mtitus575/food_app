@@ -39,8 +39,14 @@ main,
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(12, 1fr); */
   }
-  .ingredientList{
-  max-width: 300px;
+  .ingredientList {
+    max-width: 300px;
+  }
+
+  .ingredient-nutrition-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }
 
@@ -49,7 +55,19 @@ main,
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .ingredientList{
-  max-width: 768px;
+  .ingredientList {
+    max-width: 768px;
+  }
+  .ingredient-nutrition-grid {
+    /* border: 2px solid var(--style-clr-4); */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    /* 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  */
   }
 }
