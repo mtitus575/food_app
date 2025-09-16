@@ -14,20 +14,16 @@
 }
 .recipeMainImage {
   margin: 10px 0;
-  /* border: var(--style-clr-5) 2px solid; */
   border-radius: 10px;
   margin: 1rem 1rem;
 }
 .recipeMainDetails {
   min-height: 80%;
-  /* border: 2px solid var(--style-clr-4); */
   color: var(--style-clr-1);
   width: 100%;
 }
 
 .recipeMainHighlights {
-  border: 2px solid var(--style-clr-4); /*Remove this later*/
-  /* box-shadow: .1px .1px 10px .1px; */
   padding: 0.7rem;
   margin: 0.5rem 0;
   justify-self: center;
