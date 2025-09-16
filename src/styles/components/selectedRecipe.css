@@ -150,7 +150,7 @@
   2. This must be done in JS.
   */
 
-  /* display: none; */
+  display: none;
 }
 .ingredient-nutrition-list {
   display: inline-flex;

@@ -571,6 +571,40 @@ const uiEventHandlers = {
     const resetBtn = document.getElementById("resetWeeklyRecipe");
     resetBtn.style.display = "block";
   },
+
+  //event handler for clicking edit ingredient button
+  handleEditIngredientBtn: function (e) {
+    e.preventDefault();
+
+    console.log("Edit Ingredients button was clicked!");
+    //get reference to the items that must be shown:
+    const ingredientsToEdit = document.querySelector(
+      ".ingredient-nutrition-section"
+    );
+    ingredientsToEdit.style.display = "block";
+
+    const closeBtn = document.querySelector(".closeEditIngredientBtn");
+    closeBtn.style.display = "block";
+    closeBtn.addEventListener("click", uiEventHandlers.handleCloseEditBtnClick);
+
+    const editIngredientBtn = document.querySelector(".editIngredientBtn");
+    editIngredientBtn.style.display = "none";
+  },
+  //Event handler for closing the complete edit button:
+  handleCloseEditBtnClick: function (e) {
+    e.preventDefault();
+
+    const ingredientsToEdit = document.querySelector(
+      ".ingredient-nutrition-section"
+    );
+    ingredientsToEdit.style.display = "";
+
+    const editIngredientBtn = document.querySelector(".editIngredientBtn");
+    editIngredientBtn.style.display = "";
+
+    const closeBtn = document.querySelector(".closeEditIngredientBtn");
+    closeBtn.style.display = "";
+  },
 };
 
 // Initialize event listeners when the DOM is loaded
@@ -683,13 +717,30 @@ async function makeSection(recipe) {
 
     const recipeDetails = createComponent("div", "recipeMainDetails"); //container for details
     recipeHero.append(recipeImg, recipeDetails);
+    //Edit ingredients' buttons container:
+    const btnDiv = createComponent("div", "ingredientBtnDiv");
+    const editIngredientBtn = createComponent(
+      "button",
+      "editIngredientBtn btn"
+    );
+    editIngredientBtn.textContent = "Edit Ingredients";
+    editIngredientBtn.addEventListener(
+      "click",
+      uiEventHandlers.handleEditIngredientBtn
+    );
+    const closeEditIngredientBtn = createComponent(
+      "button",
+      "closeEditIngredientBtn btn"
+    );
+    closeEditIngredientBtn.textContent = "Complete Edit";
+    btnDiv.append(editIngredientBtn, closeEditIngredientBtn);
 
     //Create elements and append inside the `recipeDetails` container:
     const highlights = createComponent("article", "recipeMainHighlights");
     const instructions = document.createElement("article");
     instructions.className = "recipeMainInstruct";
     const btnCtn = createComponent("div", "recipeBtnCtn");
-    recipeDetails.append(highlights, instructions, btnCtn);
+    recipeDetails.append(highlights, btnDiv, instructions, btnCtn);
 
     //Create and append elements inside the `highlights` container:
     const recipeTitle = createComponent("h1", "recipeMainTitle");
@@ -711,7 +762,7 @@ async function makeSection(recipe) {
     }
 
     const basicInfo = createComponent("article", "recipeBasicInfo");
-    highlights.append(recipeTitle,basicInfo, ingredientList);
+    highlights.append(recipeTitle, basicInfo, ingredientList);
 
     //Create and append details to `basicInfo` container:
     const servings = createComponent("p");

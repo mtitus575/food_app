@@ -34,18 +34,21 @@
   background-color: var(--style-clr-4);
 }
 
-#resetWeeklyRecipe, #closeShoppingList {
+#resetWeeklyRecipe,
+#closeShoppingList {
   background-color: var(--style-clr-1);
   color: var(--style-clr-5);
   border-color: var(--style-clr-1);
 }
 
-#resetWeeklyRecipe:hover, #closeShoppingList:hover {
+#resetWeeklyRecipe:hover,
+#closeShoppingList:hover {
   background-color: var(--style-clr-2);
   box-shadow: 1px 1px 2px var(--style-clr-2);
 }
 
-#resetWeeklyRecipe:active, #closeShoppingList:active {
+#resetWeeklyRecipe:active,
+#closeShoppingList:active {
   background-color: var(--style-clr-1);
   color: var(--style-clr-5);
   border-color: var(--style-clr-1);
@@ -61,4 +64,17 @@
 
 .btn-disabled:hover {
   background-color: #6c757d !important;
+}
+
+.ingredientBtnDiv{
+  display: flex;
+  justify-content: space-around;
+}
+
+.editIngredientBtn {
+  /* editing recipe ingredients */
+}
+
+.closeEditIngredientBtn {
+  display: none;
 }
