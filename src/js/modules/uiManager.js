@@ -906,7 +906,7 @@ function displayArrayItems(recipe, arrayName, parentElement) {
     targetArr.forEach((element) => {
       const listItem = document.createElement("li");
       listItem.className = `${arrayName}-list`;
-      listItem.textContent = `${count}. ${element}`;
+      listItem.textContent = `${element}`;
       parentElement.appendChild(listItem);
       count++;
     });

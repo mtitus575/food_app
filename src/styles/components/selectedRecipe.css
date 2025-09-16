@@ -21,54 +21,48 @@
 .recipeMainDetails {
   min-height: 80%;
   border: 2px solid var(--style-clr-4);
-  padding: 1rem;
   color: var(--style-clr-1);
 }
 
 .recipeMainHighlights {
-  /* display: grid */
-  /* min-height: 40%;
-  border: 2px solid green;
-  background-color: white;
-  padding: 10px;
-  margin: 10px 0;
-  color: black; */
+  border: 2px solid var(--style-clr-4);
+  padding: .7rem;
+  margin: .5rem 0;
+  justify-self: center;
 }
 .recipeMainInstruct {
-  /* border: 2px solid red;
-  background-color: white;
+  border: 2px solid var(--style-clr-4);
   padding: 10px;
   margin: 10px 0;
-  color: black; */
+  
 }
 .recipeBtnCtn {
-  /* min-height: 10%;
   display: flex;
-  justify-content: space-around;
   padding: 1rem;
-  background-color: lightgray; */
+  justify-content: space-around;
 }
+
 .recipeMainTitle {
-  /* border: 2px solid blue;
-  background-color: white;
-  color: black;
-  font-size: 2rem;
+  /* font-size: 2rem;
   font-weight: bold;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 1rem;
+  margin: 0.5rem 0;
   text-align: center; */
 }
+
 .ingredientList {
   /* the ingredient container */
-  /* border: 2px solid rgb(223, 115, 133);
-  min-height: 50px;
-  list-style: none;
+  /* border: 2px solid rgb(223, 115, 133); */
+  /* list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   padding: 10px;
-  margin: 10px;
-  background-color: white;
-  color: black; */
+  margin: 10px; */
+}
+.ingredientList > li{
+  text-align: left;
+  margin: 0.4rem;
+  list-style: circle;
 }
 .recipeBasicInfo {
   /* display: flex;
@@ -92,9 +86,12 @@
 
 .instructions-list {
   /* individual items */
-  /* text-align: left;
-  font-size: 1.1rem;
-  line-height: 1.5; */
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  list-style-position: inside;
+  margin: 0.5rem 0;
+  
 }
 .ingredients-list {
   /* individual items */
@@ -282,7 +279,8 @@
 }
 
 .ingredients-header {
-  /* display: flex;
+  /* 
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px; */
@@ -301,8 +299,15 @@
 }
 
 .ingredient-header {
-  /* border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 10px; */
+  display: flex;
+  /* align-items: center; */
+  flex-wrap: wrap;           
+   
+}
+
+.ingredient-nutrition-item {
+  width: 100%;               /* Prevent child overflow */
+  box-sizing: border-box;
 }
 
 .ingredient-name-input,

@@ -34,6 +34,8 @@ main,
   }
   .recipeMainHighlights {
     /* Decide on page layout for different screen on paper first */
+    max-width: 80%;
+    box-sizing: content-box;
     /* display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(12, 1fr); */
