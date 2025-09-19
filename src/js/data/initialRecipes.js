@@ -223,6 +223,7 @@ export const RECIPE_BANK = [
   {
     //fourth recipe:
     id: 4,
+    week: 4,
     name: "sweet miso aubergine in a sambal mayo drizzle",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6811efb55917498f8bf2e652/step-7e017d50.jpg",
@@ -271,6 +272,7 @@ export const RECIPE_BANK = [
   {
     //fifth recipe:
     id: 5,
+    week: 4,
     name: "northern thai inspired vegetable noodle soup",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6811efaf05fc1830ec44fd62/step-21dbca50.jpg",
@@ -374,6 +376,7 @@ export const RECIPE_BANK = [
   {
     //seventh recipe:
     id: 7,
+    week: 3,
     name: "mexican inspired tomato black beans",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6809119bde3861faddf5a2c1/step-37948d50.jpg",
@@ -482,6 +485,7 @@ export const RECIPE_BANK = [
   {
     //ninth recipe:
     id: 9,
+    week: 3,
     name: "confit garlic, lemon and rosemary basa",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67f7c60f0ed0c93fe95a3d68/step-c7991650.jpg",
@@ -574,6 +578,7 @@ export const RECIPE_BANK = [
   {
     //eleventh recipe:
     id: 11,
+    week: 3,
     name: "miso glazed aubergine",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67e53642f59be9ad8dcc7609/step-537a3750.jpg",
@@ -615,6 +620,7 @@ export const RECIPE_BANK = [
   {
     //twelfth recipe:
     id: 12,
+    week: 3,
     name: "basa bouillabaisse",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67e5363d0d3e977968bd966d/step-8499ca50.jpg",
@@ -734,6 +740,7 @@ export const RECIPE_BANK = [
   {
     //fourteenth recipe:
     id: 14,
+    week: 4,
     name: "honey-harissa glazed cod",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/67daf73b7aed69c9540c8fc2/step-aa8cfc50.jpg",
@@ -969,6 +976,7 @@ export const RECIPE_BANK = [
   {
     //eighteenth recipe:
     id: 18,
+    week: 4,
     name: "sweet and spicy plant-based mince noodles",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6790ebacf191f0a81ae72dac/step-0ae23650.jpg",
@@ -1056,6 +1064,7 @@ export const RECIPE_BANK = [
   {
     //twentieth recipe:
     id: 20,
+    week: 3,
     name: "this isn't chicken fricassee inspired soup",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/676047d9f511d87afd23f730/step-12d1da50.jpg",
@@ -1167,6 +1176,7 @@ export const RECIPE_BANK = [
   {
     //twenty-second recipe:
     id: 22,
+    week: 4,
     name: "sticky teriyaki fried tofu on kimchi fried rice",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6759b7a14f0b0d39dcbec79e/step-96b7f250.jpg",
@@ -1277,6 +1287,7 @@ export const RECIPE_BANK = [
   {
     //twenty-fourth recipe:
     id: 24,
+    week: 3,
     name: "tofu tikka tacos",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6750302bd4acb9b7600a9972/step-1b08b150.jpg",
@@ -1392,6 +1403,7 @@ export const RECIPE_BANK = [
   {
     //twenty-sixth recipe:
     id: 26,
+    week: 3,
     name: "peri peri spiced tofu",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/6718d0e5d68888376c8d1e8a/step-51eb5350.jpg",
@@ -1441,6 +1453,7 @@ export const RECIPE_BANK = [
   {
     //twenty-seventh recipe:
     id: 27,
+    week: 4,
     name: "basa on a bed of creamy pesto lentils",
     image: "",
     ingredients: [
@@ -1474,7 +1487,8 @@ export const RECIPE_BANK = [
   {
     //twenty-eighth recipe:
     id: 28,
-    name: "black bean chilli",
+    week: 4,
+    name: "orange & black bean chilli",
     image: "",
     ingredients: [
       { name: "red onions", amount: 2, unit: "whole", image: "imgOfItem" },
@@ -1537,6 +1551,7 @@ export const RECIPE_BANK = [
   {
     //twenty-ninth recipe:
     id: 29,
+    week: 3,
     name: "coconut red lentil dal",
     image: "",
     ingredients: [
@@ -1681,6 +1696,7 @@ export const RECIPE_BANK = [
   {
     //thirty-second recipe:
     id: 32,
+    week: 2,
     name: "shredded hoison smoked tofu bao buns",
     image:
       "https://media.greenchef.com/w_750,q_auto,f_auto,c_limit,fl_lossy/hellofresh_s3/66c5fa2d148d730f514f80fa/step-78101850.jpg",
@@ -1727,6 +1743,7 @@ export const RECIPE_BANK = [
   {
     //thirty-third recipe:
     id: 33,
+    week: 4,
     name: "baja inspired crispy basa tacos",
     image: "",
     ingredients: [
@@ -1773,6 +1790,7 @@ export const RECIPE_BANK = [
   {
     //thirty-fourth recipe:
     id: 34,
+    week: 2,
     name: "gujarati inspired dal soup",
     image: "",
     ingredients: [
