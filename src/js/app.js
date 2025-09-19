@@ -13,6 +13,8 @@ import {
 } from "./modules/mealPlanner.js";
 
 function startApp() {
+  console.log("🚀 App starting...");
+
   // Initialize API key management for production
   ApiKeyManager.init();
 
@@ -22,18 +24,14 @@ function startApp() {
   let recipesToDisplay;
   let isWeeklySelection = false;
 
+  console.log("🕒 Checking if time to reset...");
   //Check if 7 days have passed since last weekly recipes selection
   if (isTimeToReset()) {
-    // Time to reset - create empty weekly plan
-    const newWeeklyPlan = {
-      recipes: [],
-      cookedMeals: [],
-      planDate: null,
-    };
+    console.log("⚠️ RESETTING WEEKLY PLAN - Time to reset returned true");
 
-    // Save empty plan to localStorage
-    DataManager.save("WeeklyRecipes", newWeeklyPlan);
-    // console.log("The saved recipes have been reset in localStorage.");
+    // DON'T save an empty plan - just clear it completely
+    DataManager.save("WeeklyRecipes", null);
+    console.log("Weekly recipes cleared from localStorage.");
 
     // After reset, show all recipes
     recipesToDisplay = data.recipes;

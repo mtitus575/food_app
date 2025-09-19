@@ -13,16 +13,28 @@ export {
 
 /*Sequential Recipe Selector - cycles through available weeks */
 function selectWeeklyRecipes() {
+  console.log("🔥 selectWeeklyRecipes() called");
+
+  // ONE-TIME FIX: Clear any corrupted empty plans
+  const existingPlan = DataManager.load("WeeklyRecipes");
+  if (
+    existingPlan &&
+    existingPlan.planDate === null &&
+    existingPlan.recipes.length === 0
+  ) {
+    console.log("🧹 Clearing corrupted empty plan");
+    DataManager.save("WeeklyRecipes", null);
+  }
+
   // Get all recipes from our data store
   const allRecipes = DataManager.getInitialRecipes();
-  // console.log(`Total recipes available: ${allRecipes.length}`);
 
   // Find all available week numbers (filter out undefined and null values)
   const weekNumbers = [
     ...new Set(allRecipes.map((recipe) => recipe.week).filter(Boolean)),
   ].sort((a, b) => a - b); // Sort weeks numerically: 1, 2, 3, etc.
 
-  // console.log(`Available week numbers: ${weekNumbers}`);
+  console.log(`Available week numbers: ${weekNumbers}`);
 
   // Safety check - if no valid week numbers, default to week 1
   if (weekNumbers.length === 0) {
@@ -32,25 +44,58 @@ function selectWeeklyRecipes() {
     weekNumbers.push(1);
   }
 
+  // SIMPLE DEBUGGING - Direct localStorage check
+  console.log("🔍 Direct localStorage check:");
+  const rawData = window.localStorage
+    ? window.localStorage.getItem("WeeklyRecipes")
+    : "localStorage not available";
+  console.log("Raw localStorage data:", rawData);
+
   // Get the previously selected week from localStorage
   const previousPlan = DataManager.load("WeeklyRecipes");
   let lastWeek = 0;
 
-  if (previousPlan && previousPlan.recipes && previousPlan.recipes.length > 0) {
-    lastWeek = previousPlan.recipes[0].week;
-    // console.log(`Last selected week was: ${lastWeek}`);
+  console.log("🔍 DataManager.load result:", previousPlan);
+
+  if (
+    previousPlan &&
+    previousPlan.recipes &&
+    Array.isArray(previousPlan.recipes) &&
+    previousPlan.recipes.length > 0
+  ) {
+    console.log("✅ Found previous plan with recipes");
+    console.log("First recipe week:", previousPlan.recipes[0].week);
+
+    if (
+      previousPlan.recipes[0] &&
+      typeof previousPlan.recipes[0].week === "number"
+    ) {
+      lastWeek = previousPlan.recipes[0].week;
+      console.log(`✅ Last selected week was: ${lastWeek}`);
+    } else {
+      console.log("❌ First recipe has no valid week property");
+    }
+  } else {
+    console.log("❌ No valid previous plan found, starting from week 0");
   }
 
   // Find the next week in sequence
   let nextWeekIndex = weekNumbers.indexOf(lastWeek) + 1;
 
-  // If we reached the end of available weeks, start from the beginning
-  if (nextWeekIndex >= weekNumbers.length || nextWeekIndex < 0) {
-    nextWeekIndex = 0;
+  // If lastWeek wasn't found in weekNumbers (returns -1), or we reached the end, cycle back to beginning
+  if (
+    weekNumbers.indexOf(lastWeek) === -1 ||
+    nextWeekIndex >= weekNumbers.length
+  ) {
+    nextWeekIndex = 0; // Start from the first week
   }
 
   const selectedWeek = weekNumbers[nextWeekIndex];
-  // console.log(`Selected next week in sequence: ${selectedWeek}`);
+  console.log(
+    `Selected next week in sequence: ${selectedWeek} (lastWeek was: ${lastWeek}, lastWeek found at index: ${weekNumbers.indexOf(
+      lastWeek
+    )}, nextWeekIndex: ${nextWeekIndex})`
+  );
 
   // Filter recipes by the selected week
   const weeklyRecipes = allRecipes.filter(
@@ -65,7 +110,26 @@ function selectWeeklyRecipes() {
       planDate: new Date().toISOString(),
     };
 
-    DataManager.save("WeeklyRecipes", weeklyPlan);
+    console.log("Saving weekly plan:", weeklyPlan);
+    console.log(
+      "Weekly plan recipes week numbers:",
+      weeklyPlan.recipes.map((r) => r.week)
+    );
+
+    const saveResult = DataManager.save("WeeklyRecipes", weeklyPlan);
+    console.log("Save result:", saveResult);
+
+    // Verify save by immediately loading it back
+    const verification = DataManager.load("WeeklyRecipes");
+    console.log("Verification load:", verification);
+
+    // Manual test - save and load with raw localStorage
+    console.log("🧪 Manual localStorage test:");
+    const manualSave = JSON.stringify(weeklyPlan);
+    window.localStorage.setItem("WeeklyRecipes_Manual", manualSave);
+    const manualLoad = window.localStorage.getItem("WeeklyRecipes_Manual");
+    const manualParsed = JSON.parse(manualLoad);
+    console.log("Manual save/load test:", manualParsed);
 
     // Clear all cooked recipe statuses when selecting new weekly recipes
     try {
@@ -79,34 +143,59 @@ function selectWeeklyRecipes() {
       );
     }
 
-    // console.log(
-    //   `Saved ${weeklyRecipes.length} recipes from week ${selectedWeek} to localStorage`
-    // );
+    console.log(
+      `Saved ${weeklyRecipes.length} recipes from week ${selectedWeek} to localStorage`
+    );
 
     return weeklyRecipes;
   } else {
-    // console.log(`No recipes found for week ${selectedWeek}`);
+    console.log(`No recipes found for week ${selectedWeek}`);
     return [];
   }
 }
 
 /*Resets the Weekly Recipes */
 function isTimeToReset() {
-  const weeklyPlan = DataManager.load("WeeklyRecipes");
+  console.log("🕒 isTimeToReset() called");
 
-  if (!weeklyPlan || !weeklyPlan.planDate) {
-    // console.log("No plan data found, reset needed.");
+  const weeklyPlan = DataManager.load("WeeklyRecipes");
+  console.log("🕒 Loaded plan for time check:", weeklyPlan);
+
+  // If no plan exists at all (null/undefined), no reset needed - just means no weekly plan selected yet
+  if (!weeklyPlan) {
+    console.log(
+      "🕒 No plan exists - no reset needed, user hasn't selected weekly recipes yet"
+    );
+    return false;
+  }
+
+  // If plan exists but has no planDate, it's corrupted - reset needed
+  if (!weeklyPlan.planDate) {
+    console.log(
+      "🕒 Plan exists but no planDate - corrupted data, reset needed"
+    );
     return true;
   }
+
+  // If plan exists but has empty recipes array, it's corrupted - reset needed
+  if (!weeklyPlan.recipes || weeklyPlan.recipes.length === 0) {
+    console.log(
+      "🕒 Plan exists but empty recipes array - corrupted data, reset needed"
+    );
+    return true;
+  }
+
   //convert ISO strings to Date Objects:
   const currentDate = new Date();
   const weeklyPlanDate = new Date(weeklyPlan.planDate);
 
   const timeDiffMs = currentDate - weeklyPlanDate;
   const timeDiffDays = timeDiffMs / (1000 * 60 * 60 * 24);
-  // console.log(`The time difference in days:`, timeDiffDays);
+  console.log(`🕒 Time difference in days: ${timeDiffDays}`);
 
-  return timeDiffDays >= 7;
+  const shouldReset = timeDiffDays >= 7;
+  console.log(`🕒 Should reset: ${shouldReset}`);
+  return shouldReset;
 }
 
 /*Mark a Recipe as Cooked */
@@ -117,12 +206,8 @@ function markAsCooked(recipeId) {
 
 /*Resets the weekly recipes manually */
 function resetWeeklyPlan() {
-  // Clear the weekly plan from localStorage
-  DataManager.save("WeeklyRecipes", {
-    recipes: [],
-    cookedMeals: [],
-    planDate: null,
-  });
+  // Clear the weekly plan from localStorage completely
+  DataManager.save("WeeklyRecipes", null);
 
   // Clear all cooked recipe statuses when resetting weekly plan
   try {
@@ -133,7 +218,7 @@ function resetWeeklyPlan() {
     console.warn("Could not clear cooked recipes during reset:", error);
   }
 
-  // console.log("Weekly plan has been reset manually");
+  console.log("Weekly plan has been reset manually");
 
   // Return all recipes to display
   return DataManager.getInitialRecipes();

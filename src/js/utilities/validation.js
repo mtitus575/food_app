@@ -119,6 +119,8 @@ export const Validator = {
             validated[key] = this.sanitizeHTML(value);
           } else if (typeof value === "number" && !isNaN(value)) {
             validated[key] = this.validateNumber(value);
+          } else if (typeof value === "boolean") {
+            validated[key] = value; // Keep boolean values
           } else if (typeof value === "object") {
             validated[key] = this.validateStorageData(value, expectedStructure);
           }
