@@ -9,23 +9,56 @@ import {
 } from "./mealPlanner.js";
 import { getIngredientData } from "./nutritionCache.js";
 import { Validator } from "../utilities/validation.js";
+import { searchItem } from "./searchFunction.js";
 
 export const uiManager = {
-  loadTotalRecipes: function (recipesToShow = null, isWeeklySelection = false) {
+  // State tracker for current view mode
+  currentViewState: {
+    mode: "all", // 'all' or 'weekly'
+    isSearchActive: false,
+  },
+
+  // Method to update current view state
+  setViewState: function (mode) {
+    this.currentViewState.mode = mode;
+    // Persist view state to localStorage
+    DataManager.save("currentViewState", { mode: mode });
+    console.log(`View state updated to: ${mode}`);
+  },
+
+  // Method to get current view state
+  getCurrentViewMode: function () {
+    // Try to load from localStorage first
+    const saved = DataManager.load("currentViewState");
+    if (saved && saved.mode) {
+      this.currentViewState.mode = saved.mode;
+    }
+    return this.currentViewState.mode;
+  },
+
+  // Method to set search state
+  setSearchState: function (isActive) {
+    this.currentViewState.isSearchActive = isActive;
+  },
+
+  loadTotalRecipes: function (
+    recipesToShow = null,
+    isWeeklySelection = false,
+    isSearchResult = false
+  ) {
     const recipeTotal = document.getElementById("recipe_total");
 
-    if (isWeeklySelection && recipesToShow) {
-      // Show count of selected weekly recipes
+    if (recipesToShow && recipesToShow.length !== undefined) {
+      // Show count of currently displayed recipes (weekly, search results, or specific set)
       recipeTotal.textContent = recipesToShow.length;
     } else {
-      // Show total recipes available
+      // Fallback: Show total recipes available
       const recipeSavedTotal = DataManager.getInitialRecipes().length;
       recipeTotal.textContent = recipeSavedTotal;
     }
 
     return recipeTotal.textContent;
   },
-
   createRecipeCard: function (input, isWeeklySelection = false) {
     // const recipeArray = DataManager.init().recipes; //saved array from my dataset.
     const recipeArray = input;
@@ -455,6 +488,52 @@ export const uiManager = {
 };
 
 const uiEventHandlers = {
+  //event handler for search button:
+  handleSearch: function (event) {
+    event.preventDefault();
+    console.log("Search Button was clicked!");
+
+    // Get the search input value and validate
+    const searchInput = document.querySelector(".search_input");
+    const searchTerm = searchInput.value.trim();
+
+    // If search field is empty, restore normal display
+    if (!searchTerm) {
+      // Clear the search input
+      searchInput.value = "";
+
+      // Restore normal recipe display
+      uiManager.clearRecipeDisplay();
+
+      // Use current view state instead of checking localStorage
+      const data = DataManager.init();
+      const currentMode = uiManager.getCurrentViewMode();
+
+      if (currentMode === "weekly") {
+        // Restore weekly recipes display
+        uiManager.createRecipeCard(data.weeklyPlan.recipes, true);
+        uiManager.loadTotalRecipes(data.weeklyPlan.recipes, true);
+        uiManager.toggleResetButton(true);
+        uiManager.toggleShoppingListButton(true);
+        uiManager.setViewState("weekly"); // Ensure state is correct
+      } else {
+        // Restore all recipes display
+        uiManager.createRecipeCard(data.recipes, false);
+        uiManager.loadTotalRecipes(data.recipes, false);
+        uiManager.toggleResetButton(false);
+        uiManager.toggleShoppingListButton(false);
+        uiManager.setViewState("all"); // Ensure state is correct
+      }
+
+      uiManager.setSearchState(false);
+      console.log(`Search cleared - restored ${currentMode} recipes display`);
+      return;
+    }
+
+    // Set search as active when performing search
+    uiManager.setSearchState(true);
+    searchItem(uiManager);
+  },
   //event handler for clicking each recipe:
   handleRecipeClick: function (recipe) {
     /*  This creates a closure and gives the eventHanldler function that is being returned,
@@ -493,6 +572,8 @@ const uiEventHandlers = {
       uiManager.toggleShoppingListButton(true);
       // Update total to show selected weekly recipes count
       uiManager.loadTotalRecipes(weeklyRecipes, true);
+      // Set view state to weekly
+      uiManager.setViewState("weekly");
     } else {
       // console.log("No weekly recipes returned");
       // Hide reset button if no weekly recipes
@@ -501,6 +582,8 @@ const uiEventHandlers = {
       uiManager.toggleShoppingListButton(false);
       // Show total recipes available
       uiManager.loadTotalRecipes();
+      // Keep view state as all
+      uiManager.setViewState("all");
     }
   },
 
@@ -530,6 +613,9 @@ const uiEventHandlers = {
 
     // Update the total recipes display to show all recipes
     uiManager.loadTotalRecipes();
+
+    // Set view state to all recipes
+    uiManager.setViewState("all");
   },
 
   //eventHandler for shopping list button:
@@ -652,6 +738,64 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.error("Could not find closeShoppingList button");
   }
+
+  const searchBtn = document.querySelector(".search_btn");
+  if (searchBtn) {
+    searchBtn.addEventListener("click", uiEventHandlers.handleSearch);
+    console.log("Search button event handler set up.");
+  } else {
+    console.log("Could not find search button.");
+  }
+
+  const inputField = document.querySelector(".search_input");
+  if (inputField) {
+    // Existing keydown listener for Enter key
+    inputField.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        uiEventHandlers.handleSearch(e);
+      }
+    });
+
+    // New input listener to detect when field is cleared
+    inputField.addEventListener("input", function (e) {
+      const searchTerm = this.value.trim();
+
+      // If field is completely empty, restore normal display
+      if (!searchTerm) {
+        // Clear the search input
+        this.value = "";
+
+        // Restore normal recipe display
+        uiManager.clearRecipeDisplay();
+
+        // Use current view state instead of checking localStorage
+        const data = DataManager.init();
+        const currentMode = uiManager.getCurrentViewMode();
+
+        if (currentMode === "weekly") {
+          // Restore weekly recipes display
+          uiManager.createRecipeCard(data.weeklyPlan.recipes, true);
+          uiManager.loadTotalRecipes(data.weeklyPlan.recipes, true);
+          uiManager.toggleResetButton(true);
+          uiManager.toggleShoppingListButton(true);
+        } else {
+          // Restore all recipes display
+          uiManager.createRecipeCard(data.recipes, false);
+          uiManager.loadTotalRecipes(data.recipes, false);
+          uiManager.toggleResetButton(false);
+          uiManager.toggleShoppingListButton(false);
+        }
+
+        uiManager.setSearchState(false);
+        console.log(
+          `Search field cleared - restored ${currentMode} recipes display`
+        );
+      }
+    });
+  } else {
+    console.log("Could not find search input field.");
+  }
 });
 
 const uiHelpers = {
@@ -677,7 +821,7 @@ const uiHelpers = {
 };
 
 //This functions populates the selected recipe card:
-async function makeSection(recipe) {
+function makeSection(recipe) {
   try {
     // Validate recipe data first
     if (!recipe) {
@@ -895,12 +1039,11 @@ async function makeSection(recipe) {
           }
 
           // Refresh the recipe display to move cooked recipe to bottom
-          // Check if we're currently showing weekly recipes or all recipes
+          // Use current view state instead of checking localStorage
           const data = DataManager.init();
-          const isShowingWeeklyRecipes =
-            data.weeklyPlan.recipes && data.weeklyPlan.recipes.length > 0;
+          const currentMode = uiManager.getCurrentViewMode();
 
-          if (isShowingWeeklyRecipes) {
+          if (currentMode === "weekly") {
             // Refresh weekly recipes display
             uiManager.refreshRecipeDisplay(data.weeklyPlan.recipes, true);
             uiManager.loadTotalRecipes(data.weeklyPlan.recipes, true);
@@ -1911,13 +2054,3 @@ function updateNutritionTotals(container, nutritionData) {
 
   // console.log("Final per-portion nutrition:", perPortion);
 }
-
-/** 28/08/2025
- Next:
- 1. From the origialRecipe array, create groupings of the recipes
-    -- use the file at home for this
-    -- groupings must contain 8 recipes.
- 2. Add logic to loops through the groupings. It must remembers the order for each week.
- 3. Style the card to display the recipe nicely.
- 
- */

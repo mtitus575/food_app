@@ -13,7 +13,7 @@ import {
 } from "./modules/mealPlanner.js";
 
 function startApp() {
-  console.log("🚀 App starting...");
+  // console.log("🚀 App starting...");
 
   // Initialize API key management for production
   ApiKeyManager.init();
@@ -24,7 +24,7 @@ function startApp() {
   let recipesToDisplay;
   let isWeeklySelection = false;
 
-  console.log("🕒 Checking if time to reset...");
+  // console.log("🕒 Checking if time to reset...");
   //Check if 7 days have passed since last weekly recipes selection
   if (isTimeToReset()) {
     console.log("⚠️ RESETTING WEEKLY PLAN - Time to reset returned true");
@@ -38,29 +38,45 @@ function startApp() {
     isWeeklySelection = false;
     // Disable shopping list button since no weekly recipes after reset
     uiManager.toggleShoppingListButton(false);
+    // Set initial state to all recipes
+    uiManager.setViewState("all");
     // console.log("Displaying all recipes after reset.");
   }
-  // No reset needed, check if we have weekly recipes to display
-  else if (data.weeklyPlan.recipes && data.weeklyPlan.recipes.length > 0) {
-    // We have weekly recipes, display those
-    recipesToDisplay = data.weeklyPlan.recipes;
-    isWeeklySelection = true;
-    // Show reset button since weekly recipes are displayed
-    uiManager.toggleResetButton(true);
-    // Enable shopping list button since weekly recipes are available
-    uiManager.toggleShoppingListButton(true);
-    // console.log("Displaying saved weekly recipes.");
-  }
-  // No reset needed but no weekly recipes found
+  // No reset needed, check saved view state first, then data availability
   else {
-    // Fall back to all recipes
-    recipesToDisplay = data.recipes;
-    isWeeklySelection = false;
-    // Hide reset button since we're showing all recipes
-    uiManager.toggleResetButton(false);
-    // Disable shopping list button since no weekly recipes
-    uiManager.toggleShoppingListButton(false);
-    // console.log("No weekly recipes found, displaying all recipes.");
+    // Get the previously saved view state
+    const savedViewMode = uiManager.getCurrentViewMode();
+
+    // If user was viewing weekly recipes AND we have weekly data, restore weekly view
+    if (
+      savedViewMode === "weekly" &&
+      data.weeklyPlan.recipes &&
+      data.weeklyPlan.recipes.length > 0
+    ) {
+      // We have weekly recipes, display those
+      recipesToDisplay = data.weeklyPlan.recipes;
+      isWeeklySelection = true;
+      // Show reset button since weekly recipes are displayed
+      uiManager.toggleResetButton(true);
+      // Enable shopping list button since weekly recipes are available
+      uiManager.toggleShoppingListButton(true);
+      // Set initial state to weekly recipes
+      uiManager.setViewState("weekly");
+      // console.log("Restoring saved weekly recipes view.");
+    }
+    // Otherwise, show all recipes (either user was viewing all, or no weekly data available)
+    else {
+      // Fall back to all recipes
+      recipesToDisplay = data.recipes;
+      isWeeklySelection = false;
+      // Hide reset button since we're showing all recipes
+      uiManager.toggleResetButton(false);
+      // Disable shopping list button since no weekly recipes
+      uiManager.toggleShoppingListButton(false);
+      // Set initial state to all recipes
+      uiManager.setViewState("all");
+      // console.log("Displaying all recipes (default or no weekly data).");
+    }
   }
 
   // Display the determined recipes

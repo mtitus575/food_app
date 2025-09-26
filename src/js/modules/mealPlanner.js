@@ -156,10 +156,10 @@ function selectWeeklyRecipes() {
 
 /*Resets the Weekly Recipes */
 function isTimeToReset() {
-  console.log("🕒 isTimeToReset() called");
+  // console.log("🕒 isTimeToReset() called");
 
   const weeklyPlan = DataManager.load("WeeklyRecipes");
-  console.log("🕒 Loaded plan for time check:", weeklyPlan);
+  // console.log("🕒 Loaded plan for time check:", weeklyPlan);
 
   // If no plan exists at all (null/undefined), no reset needed - just means no weekly plan selected yet
   if (!weeklyPlan) {
@@ -191,10 +191,10 @@ function isTimeToReset() {
 
   const timeDiffMs = currentDate - weeklyPlanDate;
   const timeDiffDays = timeDiffMs / (1000 * 60 * 60 * 24);
-  console.log(`🕒 Time difference in days: ${timeDiffDays}`);
+  // console.log(`🕒 Time difference in days: ${timeDiffDays}`);
 
   const shouldReset = timeDiffDays >= 7;
-  console.log(`🕒 Should reset: ${shouldReset}`);
+  // console.log(`🕒 Should reset: ${shouldReset}`);
   return shouldReset;
 }
 

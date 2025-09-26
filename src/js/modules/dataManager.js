@@ -91,20 +91,20 @@ const DataManager = {
   //Method to retrieve data from storage on loading / display sample data:
   //Note arrow functions do not have a `this` context.
   init() {
-    console.log("=== DataManager.init() called ===");
+    // console.log("=== DataManager.init() called ===");
 
     const recipes = (this.recipes =
       this.load("recipes") || this.getInitialRecipes());
     const users = (this.users = this.load("users") || this.getSampleUsers());
 
-    console.log("Loading WeeklyRecipes from localStorage...");
+    // console.log("Loading WeeklyRecipes from localStorage...");
     const loadedWeeklyPlan = this.load("WeeklyRecipes");
-    console.log("Loaded WeeklyRecipes:", loadedWeeklyPlan);
+    // console.log("Loaded WeeklyRecipes:", loadedWeeklyPlan);
 
     const weeklyPlan = (this.weeklyPlan =
       loadedWeeklyPlan || this.getEmptyWeeklyRecipes());
 
-    console.log("Final weeklyPlan assigned:", weeklyPlan);
+    // console.log("Final weeklyPlan assigned:", weeklyPlan);
 
     return { recipes: recipes, users: users, weeklyPlan: weeklyPlan };
   },
