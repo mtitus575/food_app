@@ -4,6 +4,7 @@
 import { DataManager } from "./modules/dataManager.js";
 import { uiManager } from "./modules/uiManager.js";
 import { ApiKeyManager } from "./modules/apiKeyManager.js";
+import { RecipeManager } from "./modules/recipeManager.js";
 import {
   selectWeeklyRecipes,
   isTimeToReset,
@@ -88,3 +89,6 @@ function startApp() {
   // console.log("Application started successfully");
 }
 startApp();
+
+// Make RecipeManager available globally for testing
+window.RecipeManager = RecipeManager;

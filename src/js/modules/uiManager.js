@@ -11,6 +11,8 @@ import { getIngredientData } from "./nutritionCache.js";
 import { Validator } from "../utilities/validation.js";
 import { searchItem } from "./searchFunction.js";
 
+//===============================//
+
 export const uiManager = {
   // State tracker for current view mode
   currentViewState: {
@@ -483,6 +485,17 @@ export const uiManager = {
       textSpan.style.display = "inline";
       editButton.style.display = "inline-block";
       editForm.style.display = "none";
+    }
+  },
+  //Adding a user-created recipe to the display:
+  addRecipeToDisplay(recipe) {
+    const recipeContainer =
+      document.querySelector(".recipe-cards") ||
+      document.querySelector(".recipes-container");
+
+    if (recipeContainer) {
+      const recipeCard = this.createRecipeCard(recipe);
+      recipeContainer.appendChild(recipeCard);
     }
   },
 };
