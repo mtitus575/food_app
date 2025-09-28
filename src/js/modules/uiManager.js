@@ -866,7 +866,7 @@ function makeSection(recipe) {
 
     // Create and append elements inside the main `recipeHero` container.
     const recipeImg = createComponent("img", "recipeMainImage"); // image:
-    recipeImg.src = recipe.image || "/assets/images/placeholder.jpg"; // Fallback image
+    recipeImg.src = recipe.image || "./assets/images/placeholder.jpeg"; // Fallback image
     recipeImg.onerror = function () {
       this.src =
         "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='100%' height='100%' fill='%23ddd'/><text x='50%' y='50%' text-anchor='middle' dy='.3em'>Image unavailable</text></svg>";
