@@ -5,6 +5,7 @@ import { DataManager } from "./modules/dataManager.js";
 import { uiManager } from "./modules/uiManager.js";
 import { ApiKeyManager } from "./modules/apiKeyManager.js";
 import { RecipeManager } from "./modules/recipeManager.js";
+import { RecipeFormHandler } from "./modules/recipeFormHandler.js";
 import {
   selectWeeklyRecipes,
   isTimeToReset,
@@ -87,6 +88,9 @@ function startApp() {
   uiManager.loadTotalRecipes(recipesToDisplay, isWeeklySelection);
 
   // console.log("Application started successfully");
+
+  // Initialize the recipe form handler
+  new RecipeFormHandler();
 }
 startApp();
 

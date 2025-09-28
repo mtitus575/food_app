@@ -24,11 +24,16 @@
     <link rel="stylesheet" href="./src/styles/responsive.css" />
     <link rel="stylesheet" href="./src/styles/components/selectedRecipe.css" />
     <link rel="stylesheet" href="./src/styles/components/apiKeyModal.css" />
-    <link rel="stylesheet" href="./src/styles/components/shoppingList.css">
-    <link rel="stylesheet" href="./src/styles/components/buttons.css">
+    <link rel="stylesheet" href="./src/styles/components/shoppingList.css" />
+    <link rel="stylesheet" href="./src/styles/components/buttons.css" />
+    <link rel="stylesheet" href="./src/styles/components/addRecipeModal.css" />
     <script src="./assets/config.public.js" type="module" defer></script>
     <script src="./src/js/app.js" type="module" defer></script>
-    <script src="./src/js/modules/searchFunction.js" type="module" defer></script>
+    <script
+      src="./src/js/modules/searchFunction.js"
+      type="module"
+      defer
+    ></script>
     <title>Food App</title>
   </head>
   <body>
@@ -36,28 +41,31 @@
       <!-- <img src="./assets/images/menu_svg.svg" alt="menu_icon" id="menu_icon" /> -->
       <h1 id="title">My Food Application</h1>
     </header>
-    <main >
+    <main>
       <!-- Sticky Bar -->
       <div class="sticky">
         <!-- Search bar -->
         <div class="search_wrapper">
           <input
-          type="text"
-          class="search_input"
-          maxlength="100"
-          placeholder="Search Recipes..."
+            type="text"
+            class="search_input"
+            maxlength="100"
+            placeholder="Search Recipes..."
           />
           <button class="search_btn">Search</button>
         </div>
         <!-- Buttons -->
-      <div class="main_btns">
-        <button class="btn" id="getWeeklyRecipe">Get Weekly Recipes</button>
-        <button class="btn" id="resetWeeklyRecipe" style="display: none">
-          Reset Weekly Recipes
-        </button>
-        <button class="btn" id="shoppingListBtn" disabled>Shopping List</button>
+        <div class="main_btns">
+          <button class="btn" id="getWeeklyRecipe">Get Weekly Recipes</button>
+          <button class="btn" id="resetWeeklyRecipe" style="display: none">
+            Reset Weekly Recipes
+          </button>
+          <button class="btn" id="shoppingListBtn" disabled>
+            Shopping List
+          </button>
+          <button class="btn" id="addNewRecipe">+ Add Recipe</button>
+        </div>
       </div>
-    </div>
       <!-- Recipe total container -->
       <div class="hero">
         <section class="total_recipe_wrapper">
@@ -78,5 +86,85 @@
         <div id="shopping_list_content"></div>
       </div>
     </main>
+
+    <!-- Add New Recipe Modal -->
+    <div id="addRecipeModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New Recipe</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+
+        <form id="addRecipeForm" class="recipe-form">
+          <!-- Basic Recipe Info -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+
+            <div class="form-group">
+              <label for="recipeName">Recipe Name *</label>
+              <input type="text" id="recipeName" name="recipeName" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prepTime">Prep Time (minutes)</label>
+                <input type="number" id="prepTime" name="prepTime" min="0" />
+              </div>
+
+              <div class="form-group">
+                <label for="cookTime">Cook Time (minutes)</label>
+                <input type="number" id="cookTime" name="cookTime" min="0" />
+              </div>
+
+              <div class="form-group">
+                <label for="servings">Servings</label>
+                <input
+                  type="number"
+                  id="servings"
+                  name="servings"
+                  min="1"
+                  value="4"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="recipeImage">Image URL (optional)</label>
+              <input type="url" id="recipeImage" name="recipeImage" />
+            </div>
+          </div>
+
+          <!-- Ingredients Section -->
+          <div class="form-section">
+            <h3>Ingredients</h3>
+            <div id="ingredients-container">
+              <!-- Dynamic ingredients will be added here -->
+            </div>
+            <button type="button" id="add-ingredient" class="btn-secondary">
+              + Add Ingredient
+            </button>
+          </div>
+
+          <!-- Instructions Section -->
+          <div class="form-section">
+            <h3>Instructions</h3>
+            <div id="instructions-container">
+              <!-- Dynamic instructions will be added here -->
+            </div>
+            <button type="button" id="add-instruction" class="btn-secondary">
+              + Add Step
+            </button>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" id="cancelRecipe" class="btn-cancel">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Add Recipe</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
