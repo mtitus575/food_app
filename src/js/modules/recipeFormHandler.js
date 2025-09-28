@@ -179,23 +179,37 @@ export class RecipeFormHandler {
       });
     }
 
-    // Collect instructions
+    // Collect instructions with extra safety checks
     if (this.instructionsContainer) {
       const instructionItems =
         this.instructionsContainer.querySelectorAll(".instruction-item");
       instructionItems.forEach((item) => {
         const textarea = item.querySelector("textarea");
-        if (textarea && textarea.value.trim()) {
-          // Only add if instruction is provided
+        if (
+          textarea &&
+          textarea.value &&
+          typeof textarea.value === "string" &&
+          textarea.value.trim() !== ""
+        ) {
+          // Only add if instruction is provided and is a valid string
           recipeData.instructions.push(textarea.value.trim());
         }
       });
     }
 
+    // Extra safety: Filter out any nulls that might have slipped through
+    recipeData.instructions = recipeData.instructions.filter(
+      (inst) =>
+        inst !== null &&
+        inst !== undefined &&
+        typeof inst === "string" &&
+        inst.trim() !== ""
+    );
+
     return recipeData;
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
 
     try {
@@ -218,17 +232,39 @@ export class RecipeFormHandler {
         return;
       }
 
-      // Add the recipe using RecipeManager
-      RecipeManager.addRecipe(recipeData);
+      // Show loading message
+      const submitBtn = this.form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Adding recipe and fetching nutrition data...";
+      submitBtn.disabled = true;
+
+      console.log("🚀 FORM HANDLER: About to call RecipeManager.addRecipe");
+      console.log("🚀 FORM HANDLER: Recipe data:", recipeData);
+
+      // Add the recipe using RecipeManager (now async with nutrition fetching)
+      const result = await RecipeManager.addRecipe(recipeData);
+      console.log(
+        "🚀 FORM HANDLER: RecipeManager.addRecipe completed, result:",
+        result
+      );
 
       // Show success message
-      alert(`Recipe "${recipeData.name}" added successfully!`);
+      alert(
+        `Recipe "${recipeData.name}" added successfully with nutrition data!`
+      );
 
       // Close the modal
       this.closeModal();
     } catch (error) {
       console.error("Error adding recipe:", error);
       alert("Error adding recipe. Please check your input and try again.");
+    } finally {
+      // Reset button state
+      const submitBtn = this.form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.textContent = "Add Recipe";
+        submitBtn.disabled = false;
+      }
     }
   }
 }

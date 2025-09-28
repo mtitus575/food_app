@@ -906,6 +906,31 @@ function makeSection(recipe) {
 
     // Safe call to displayArrayItems with error handling
     try {
+      // Debug: Check ingredients before processing
+      console.log(
+        "🔍 DEBUG: About to process ingredients for recipe:",
+        recipe.name
+      );
+      console.log(
+        "🔍 DEBUG: Ingredients array length:",
+        recipe.ingredients?.length
+      );
+      console.log(
+        "🔍 DEBUG: Each ingredient:",
+        recipe.ingredients?.map(
+          (ing, i) => `${i}: ${ing === null ? "NULL" : ing?.name || "INVALID"}`
+        )
+      );
+      if (recipe.ingredients) {
+        recipe.ingredients.forEach((ing, index) => {
+          if (ing === null) {
+            console.log(
+              `🔥 DEBUG: Found null ingredient at index ${index} in recipe "${recipe.name}"`
+            );
+          }
+        });
+      }
+
       const ingredientItems = displayArrayItems(
         recipe,
         "ingredients",
@@ -1092,7 +1117,11 @@ function makeSection(recipe) {
 
 // Function to display ingredients/instructions:
 function displayArrayItems(recipe, arrayName, parentElement) {
+  console.log(
+    `🔍 displayArrayItems called for: "${arrayName}" on recipe: "${recipe.name}"`
+  );
   const targetArr = recipe[arrayName];
+  console.log(`🔍 ${arrayName} array:`, targetArr);
 
   // Safety check for empty or invalid arrays
   if (!targetArr || !Array.isArray(targetArr) || targetArr.length === 0) {
@@ -1119,7 +1148,22 @@ function displayArrayItems(recipe, arrayName, parentElement) {
     });
   } else if (typeof targetArr[0] === "object") {
     // Process object array (ingredients)
-    targetArr.forEach((obj) => {
+    console.log("🔍 INSIDE displayArrayItems: targetArr:", targetArr);
+    console.log(
+      "🔍 INSIDE displayArrayItems: targetArr.length:",
+      targetArr.length
+    );
+    targetArr.forEach((obj, index) => {
+      console.log(
+        `🔍 INSIDE displayArrayItems: Processing item ${index}:`,
+        obj
+      );
+      // Safety check for null/undefined objects
+      if (!obj || typeof obj !== "object") {
+        console.warn("Skipping invalid ingredient object:", obj);
+        return;
+      }
+
       const ingredient = document.createElement("li");
       ingredient.className = `${arrayName}-list`;
       ingredient.textContent = `${obj.name || "Unknown"}, ${obj.amount || 0} ${

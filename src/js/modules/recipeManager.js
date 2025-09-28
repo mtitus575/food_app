@@ -1,10 +1,11 @@
 import { Validator } from "../utilities/validation.js";
 import { DataManager } from "./dataManager.js";
 import { uiManager } from "./uiManager.js";
+import { getIngredientData } from "./nutritionCache.js";
 
 // RECIPE CRUD OPERATIONS:
 export class RecipeManager {
-  static addRecipe(recipeData) {
+  static async addRecipe(recipeData) {
     //1. Basic validation: checking required fields before ID generation:
     if (!recipeData || !recipeData.name) {
       throw new Error("Recipe must have a name");
@@ -20,14 +21,27 @@ export class RecipeManager {
     const existingIds = recipes.map((r) => r.id);
     const newId = Math.max(...existingIds, 0) + 1;
 
-    //3. Create Recipe Object with ID:
+    //3. Create Recipe Object with ID and filter out any null ingredients:
     const newRecipe = {
       id: newId,
       week: recipeData.week || 1,
       name: recipeData.name,
-      ingredients: recipeData.ingredients || [],
+      ingredients: (recipeData.ingredients || []).filter(
+        (ing) =>
+          ing && typeof ing === "object" && ing.name && ing.name.trim() !== ""
+      ),
       addedIngredients: [], //user modifications
-      instructions: recipeData.instructions || [],
+      instructions: (() => {
+        console.log(
+          "🔍 RECIPE MANAGER: Raw instructions from form:",
+          recipeData.instructions
+        );
+        const filtered = (recipeData.instructions || []).filter(
+          (inst) => inst && typeof inst === "string" && inst.trim() !== ""
+        );
+        console.log("🔍 RECIPE MANAGER: Filtered instructions:", filtered);
+        return filtered;
+      })(),
       prepTime: recipeData.prepTime || 0,
       cookTime: recipeData.cookTime || 0,
       servings: recipeData.servings || 1,
@@ -35,10 +49,45 @@ export class RecipeManager {
       nutritionalInfo: [],
     };
 
-    //4. Validate complete recipe object:
-    const validatedRecipe = Validator.validateRecipe(newRecipe);
-    if (!validatedRecipe) {
-      throw new Error("Invalid recipe data after validation");
+    //3.5. Fetch nutrition data for the recipe
+    try {
+      console.log("🍎 RECIPE MANAGER: Starting nutrition fetch process...");
+      console.log(
+        "🍎 RECIPE MANAGER: Recipe to fetch nutrition for:",
+        newRecipe
+      );
+      console.log(
+        "🍎 RECIPE MANAGER: Recipe ingredients:",
+        newRecipe.ingredients
+      );
+
+      const nutritionAPI = getIngredientData();
+      console.log(
+        "🍎 RECIPE MANAGER: Nutrition API instance created:",
+        nutritionAPI
+      );
+
+      console.log("🍎 RECIPE MANAGER: Calling fetchRecipeNutrition...");
+      const nutritionData = await nutritionAPI.fetchRecipeNutrition(newRecipe);
+      console.log(
+        "🍎 RECIPE MANAGER: Raw nutrition data returned:",
+        nutritionData
+      );
+
+      if (nutritionData) {
+        newRecipe.nutritionalInfo = nutritionData;
+        console.log("🍎 RECIPE MANAGER: Nutrition data assigned to recipe!");
+        console.log(
+          "🍎 RECIPE MANAGER: Final nutritionalInfo:",
+          newRecipe.nutritionalInfo
+        );
+      } else {
+        console.warn("🍎 RECIPE MANAGER: No nutrition data returned");
+      }
+    } catch (error) {
+      console.error("🍎 RECIPE MANAGER: Error fetching nutrition data:", error);
+      console.error("🍎 RECIPE MANAGER: Error stack:", error.stack);
+      // Continue without nutrition data - don't fail the whole recipe creation
     }
 
     //4. Persist the Data: Saving to storage

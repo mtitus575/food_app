@@ -99,6 +99,18 @@ export const Validator = {
 
   // Validate and sanitize localStorage data
   validateStorageData(data, expectedStructure = {}) {
+    // Handle primitive types first
+    if (typeof data === "string") {
+      return this.sanitizeHTML(data);
+    }
+    if (typeof data === "number" && !isNaN(data)) {
+      return this.validateNumber(data);
+    }
+    if (typeof data === "boolean") {
+      return data;
+    }
+
+    // Handle null/undefined
     if (!data || typeof data !== "object") return null;
 
     try {
@@ -107,9 +119,20 @@ export const Validator = {
 
       // If it's an array, validate each item
       if (Array.isArray(data)) {
-        return data.map((item) =>
-          this.validateStorageData(item, expectedStructure)
-        );
+        console.log("🔍 VALIDATOR: Processing array:", data);
+        const result = data.map((item) => {
+          console.log(
+            "🔍 VALIDATOR: Processing array item:",
+            item,
+            "type:",
+            typeof item
+          );
+          const validated = this.validateStorageData(item, expectedStructure);
+          console.log("🔍 VALIDATOR: Validated array item to:", validated);
+          return validated;
+        });
+        console.log("🔍 VALIDATOR: Final array result:", result);
+        return result;
       }
 
       // For objects, validate each property
